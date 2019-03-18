@@ -1,0 +1,34 @@
+##Tietokantataulut
+
+#Course-taulu
+
+Course:
+    id Integer
+    name VARCHAR
+    description VARCHAR 
+    core BOOLEAN
+    likes Integer
+    dislikes Integer
+
+Course_Comments:
+    id Integer
+    course_id Integer
+    comment_id Integer
+
+Comment:
+    id Integer
+    comment_text VARCHAR
+    comment_grade Integer
+    comment_workload Integer
+
+Course_students:
+    id Integer
+    Student_id Integer FOREIGN KEY REFERENCES(Student)
+    Course_id Integer FOREIGN KEY REFERENCES(Course)
+
+Student
+    id Integer
+    nickname VARCHAR
+    password VARCHAR
+
+
