@@ -1,6 +1,6 @@
 # Kurssitietosivu
 
-#Kuvaus
+## Kuvaus
 
 Tämä sovellus tarjoaa mahdollisuuden käyttäjille kirjoittaa kurssikuvauksia tietojenkäsittelyopiskelijoille.
 Sovelluksen pääpihvi on se, että opiskelijat voivat kertoa, mitä arvosanoja he saivat kurssista sekä kuinka 
@@ -14,4 +14,6 @@ Kirjautuneet käyttäjät voivat kommentoida kursseja sekä antaa arvosanoja. Ki
 
 ## Käyttötapaukset
 
-[Käyttötapaukset] ()
+[Käyttötapaukset] (https://github.com/Varjokorento/tsohasovellus19/blob/master/documentation/userstories.md)
+[Vaatimusmäärittelyt](https://github.com/Varjokorento/tsohasovellus19/blob/master/documentation/Specifications.md)
+[Tietokantakuvaus](https://github.com/Varjokorento/tsohasovellus19/blob/master/documentation/Databasestructure.md)
