@@ -2,7 +2,6 @@ from application import app, db
 from flask import render_template, request, redirect, url_for
 from application.courses.models import Course
 
-
 @app.route("/course", methods=["GET"])
 def courses_index():
     return render_template("courses/list.html", courses = Course.query.all())
@@ -31,5 +30,6 @@ def course_add_dislike(course_id):
     t = Course.query.get(course_id)
     t.dislikes = t.dislikes +1 
     db.session().commit()
-    return redirect(url_for("courses_index"))
+
+
  

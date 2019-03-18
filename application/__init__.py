@@ -14,5 +14,6 @@ from application import views
 
 from application.courses import models
 from application.courses import views
+from application.comments import views
 
 db.create_all()

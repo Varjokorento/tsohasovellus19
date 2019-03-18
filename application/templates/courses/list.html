@@ -26,6 +26,11 @@
             <input type="submit" value="Dislike"/>
         </form>
     </td>
+    <td>
+        <form method="POST" action="{{ url_for('comment_add_comment', course_id=course.id) }}">
+                    <input type="submit" value="Comment"/>
+         </form>
+    </td>
     </tr>
     {% endfor %}
   </table>
