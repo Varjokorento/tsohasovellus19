@@ -1,22 +1,31 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
+  <table class="container text-center">
     <tr>
       <th>Name</th>
       <th>Description</th>
       <th>Core</th>
+      <th>Likes</th>
+      <th>Dislike</th>
     </tr>
     {% for course in courses %}
     <tr>
       <td>{{ course.name }}</td>
       <td>{{ course.description }}</td>
       <td>{{ course.core }}</td>
+      <td>{{ course.likes}} </td>
+      <td>{{ course.dislikes}} </td>
       <td>
-        <form method="POST" action="{{ url_for('course_set_false', course_id=course.id) }}">
-            <input type="submit" value="Change status!"/>
+        <form method="POST" action="{{ url_for('course_add_like', course_id=course.id) }}">
+            <input type="submit" value="Like"/>
         </form>
      </td>
+     <td>
+        <form method="POST" action="{{ url_for('course_add_dislike', course_id=course.id) }}">
+            <input type="submit" value="Dislike"/>
+        </form>
+    </td>
     </tr>
     {% endfor %}
   </table>

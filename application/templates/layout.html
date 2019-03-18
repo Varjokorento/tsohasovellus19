@@ -3,14 +3,19 @@
     <head>
         <meta charset="utf-8">
         <title>Demo</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
-    <ul>
-            <li><a href="{{ url_for('courses_index') }}">List courses</a></li>
-            <li><a href="{{ url_for('courses_form') }}">Add a course</a></li>
-    </ul>
+    <div class="container">
+    <h1 class="text-center">Matalaita</h1>
+            <h3 class="text-center"><a href="{{ url_for('courses_index') }}">List courses</a></h3>
+            <h3 class="text-center" ><a href="{{ url_for('courses_form') }}">Add a course</a></h3>
+        
     <body>
         {% block body%}
-    
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
         {% endblock %}
+        
     </body>
+</div>  
 </html>

@@ -17,14 +17,19 @@ def courses_create():
     t = Course(request.form.get("name"), request.form.get("description"), core)
     db.session().add(t)
     db.session().commit()
-
     return redirect(url_for("courses_index"))
 
 @app.route("/course/<course_id>/", methods=["POST"])
-def course_set_false(course_id):
-    print(course_id)
+def course_add_like(course_id):
     t = Course.query.get(course_id)
-    t.core = not t.core
+    t.likes = t.likes +1 
+    db.session().commit()
+    return redirect(url_for("courses_index"))
+
+@app.route("/course/dislike/<course_id>/", methods=["POST"])
+def course_add_dislike(course_id):
+    t = Course.query.get(course_id)
+    t.dislikes = t.dislikes +1 
     db.session().commit()
     return redirect(url_for("courses_index"))
  
