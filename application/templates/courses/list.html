@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Core</th>
+    </tr>
+    {% for course in courses %}
+    <tr>
+      <td>{{ course.name }}</td>
+      <td>{{ course.description }}</td>
+      <td>{{ course.core }}</td>
+      <td>
+        <form method="POST" action="{{ url_for('course_set_false', course_id=course.id) }}">
+            <input type="submit" value="Change status!"/>
+        </form>
+     </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

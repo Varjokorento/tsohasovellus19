@@ -1,0 +1,16 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Demo</title>
+    </head>
+    <ul>
+            <li><a href="{{ url_for('courses_index') }}">List courses</a></li>
+            <li><a href="{{ url_for('courses_form') }}">Add a course</a></li>
+    </ul>
+    <body>
+        {% block body%}
+    
+        {% endblock %}
+    </body>
+</html>
