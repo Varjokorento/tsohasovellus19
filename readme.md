@@ -14,6 +14,8 @@ Kirjautuneet käyttäjät voivat kommentoida kursseja sekä antaa arvosanoja. Ki
 
 ## Käyttötapaukset
 
-[Käyttötapaukset] (https://github.com/Varjokorento/tsohasovellus19/blob/master/documentation/userstories.md)
+[Käyttötapaukset](https://github.com/Varjokorento/tsohasovellus19/blob/master/documentation/userstories.md)
+
 [Vaatimusmäärittelyt](https://github.com/Varjokorento/tsohasovellus19/blob/master/documentation/Specifications.md)
+
 [Tietokantakuvaus](https://github.com/Varjokorento/tsohasovellus19/blob/master/documentation/Databasestructure.md)
