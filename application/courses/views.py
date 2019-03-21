@@ -30,6 +30,6 @@ def course_add_dislike(course_id):
     t = Course.query.get(course_id)
     t.dislikes = t.dislikes +1 
     db.session().commit()
-
+    return redirect(url_for("courses_index"))
 
  
