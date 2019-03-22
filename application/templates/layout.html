@@ -10,6 +10,15 @@
             <h3 class="text-center"><a href="{{ url_for('courses_index') }}">List courses</a></h3>
             <h3 class="text-center" ><a href="{{ url_for('courses_form') }}">Add a course</a></h3>
     <body>
+            {% if current_user.is_authenticated %}
+            <p>
+            Kirjautunut nimellä {{ current_user.name }}. <a href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a>
+            </p>
+            {% else %}
+            <a href="{{ url_for('auth_login') }}">Kirjaudu</a>
+            <a href="{{ url_for('create_new_user') }}">Rekisteröidy</a>
+            {% endif %}
+            
         {% block body%}
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
