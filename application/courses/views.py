@@ -1,6 +1,6 @@
 from application import app, db
 from flask import render_template, request, redirect, url_for
-from application.courses.models import Course
+from application.models.models import Course
 
 @app.route("/course", methods=["GET"])
 def courses_index():

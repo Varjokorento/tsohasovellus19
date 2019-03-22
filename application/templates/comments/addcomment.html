@@ -2,13 +2,37 @@
   
 {% block body %}
 <div class="form-control">
-<form method="POST" action="{{ url_for('courses_create') }}">
-  <div>  
-  <input type="text" name="name"/>
-  <input type="text" name="description"/>
-  <input type="text" name="core"/>
-  <input type="submit" value="Add a new course"/>
-</div>
-</div>
-</form>
+  <form method="POST" action="{{ url_for('new_comment') }}">
+    <table>
+        <tr>
+          <td>  
+          {{ form.text.label }}
+	</td>
+	<td>
+	  {{ form.text }}
+  </td>
+</tr>
+<tr>
+  <td>
+	  {{ form.grade.label }}
+	</td>
+	<td>
+	  {{ form.grade }}
+  </td>
+</tr>
+<tr>
+  <td>
+	  {{ form.workload.label }}
+	</td>
+	<td>
+	  {{ form.workload }}
+  </td>
+</tr>
+      </tr>
+      <tr>
+	<td colspan="2">
+	  <input type="submit" value="Comment"/>
+	</td>
+      </tr>
+  </form>
 {% endblock %}

@@ -14,3 +14,14 @@ class Course(db.Model):
         self.core = core
         self.likes= 0
         self.dislikes =0
+
+class Comment(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(1000), nullable= False)
+    grade = db.Column(db.Integer, nullable= False)
+    workload = db.Column(db.Integer, nullable= False)
+    
+    def __init__(self, text, grade, workload):
+        self.text = text
+        self.grade = grade
+        self.workload = workload
