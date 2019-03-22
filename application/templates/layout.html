@@ -8,7 +8,9 @@
     <div class="container">
     <h1 class="text-center">Matalaita</h1>
             <h3 class="text-center"><a href="{{ url_for('courses_index') }}">List courses</a></h3>
+            {% if current_user.is_authenticated %}
             <h3 class="text-center" ><a href="{{ url_for('courses_form') }}">Add a course</a></h3>
+            {% endif %}
     <body>
             {% if current_user.is_authenticated %}
             <p>

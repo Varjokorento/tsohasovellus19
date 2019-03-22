@@ -1,13 +1,17 @@
 from application import app, db
 from flask import render_template, request, redirect, url_for
+from flask_login import login_required
 from application.comments.CommentForm import CommentForm
 from application.models.models import Comment
 
 @app.route("/comment/<course_id>", methods=["POST"])
+@login_required
 def comment_form(course_id):
     return render_template("comments/addcomment.html", form = CommentForm())
 
+
 @app.route("/comment/new_comment", methods=["POST"])
+@login_required
 def new_comment():
     form = CommentForm(request.form)
 
