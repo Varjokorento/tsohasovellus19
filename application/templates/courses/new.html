@@ -2,13 +2,54 @@
   
 {% block body %}
 <div class="form-control">
-<form method="POST" action="{{ url_for('courses_create') }}">
-  <div>  
-  <input type="text" name="name"/>
-  <input type="text" name="description"/>
-  <input type="text" name="core"/>
-  <input type="submit" value="Add a new course"/>
-</div>
-</div>
+    <div class="form-control">
+        <form method="POST" action="{{ url_for('courses_create') }}">
+          <table>
+              <tr>
+                <td>  
+                {{ form.name.label }}
+        </td>
+        <td>
+          {{ form.name }}
+        </td>
+        <ul>
+            {% for error in form.name.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+      </tr>
+      <tr>
+        <td>
+          {{ form.description.label }}
+        </td>
+        <td>
+          {{ form.description }}
+        </td>
+        <ul>
+            {% for error in form.description.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+      </tr>
+      <tr>
+        <td>
+          {{ form.core.label }}
+        </td>
+        <td>
+          {{ form.core }}
+        </td>
+        <ul>
+            {% for error in form.core.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+      </tr>
+            </tr>
+            <tr>
+        <td colspan="2">
+          <input type="submit" value="Course"/>
+        </td>
+            </tr>
+        </form>
 </form>
 {% endblock %}
