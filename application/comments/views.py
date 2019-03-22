@@ -7,9 +7,12 @@ from application.models.models import Comment
 def comment_form(course_id):
     return render_template("comments/addcomment.html", form = CommentForm())
 
-@app.route("/new_comment", methods=["POST"])
+@app.route("/comment/new_comment", methods=["POST"])
 def new_comment():
     form = CommentForm(request.form)
+
+    if not form.validate():
+        return render_template("/comment/new_comment", form = form)
 
     t = Comment(form.text.data, form.grade.data, form.workload.data)
     db.session().add(t)

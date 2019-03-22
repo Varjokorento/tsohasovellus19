@@ -11,6 +11,11 @@
 	<td>
 	  {{ form.text }}
   </td>
+  <ul>
+	    {% for error in form.text.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
 </tr>
 <tr>
   <td>
@@ -19,6 +24,11 @@
 	<td>
 	  {{ form.grade }}
   </td>
+  <ul>
+	    {% for error in form.grade.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
 </tr>
 <tr>
   <td>
@@ -27,6 +37,11 @@
 	<td>
 	  {{ form.workload }}
   </td>
+  <ul>
+	    {% for error in form.workload.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
 </tr>
       </tr>
       <tr>
