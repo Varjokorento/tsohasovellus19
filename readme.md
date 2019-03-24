@@ -12,6 +12,10 @@ Kirjautuneet käyttäjät voivat kommentoida kursseja sekä antaa arvosanoja. Ki
 
 [Heroku-linkki](https://matalaita.herokuapp.com/)
 
+### Käyttäjätunnukset Herokussa:
+username: Admin
+password: root
+
 ## Käyttötapaukset
 
 [Käyttötapaukset](https://github.com/Varjokorento/tsohasovellus19/blob/master/documentation/userstories.md)
