@@ -8,6 +8,7 @@
       <th>Core</th>
       <th>Likes</th>
       <th>Dislike</th>
+      <th>ECTS</th>
     </tr>
     {% for course in courses %}
     <tr>
@@ -16,6 +17,7 @@
       <td>{{ course.core }}</td>
       <td>{{ course.likes}} </td>
       <td>{{ course.dislikes}} </td>
+      <td>{{ course.ects}} </td>
       <td>
         <form method="POST" action="{{ url_for('course_add_like', course_id=course.id) }}">
             <input type="submit" value="Like"/>

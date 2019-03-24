@@ -44,6 +44,19 @@
             {% endfor %}
           </ul>
       </tr>
+      <tr>
+        <td>
+          {{ form.ects.label }}
+        </td>
+        <td>
+          {{ form.ects }}
+        </td>
+        <ul>
+            {% for error in form.ects.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+      </tr>
             </tr>
             <tr>
         <td colspan="2">

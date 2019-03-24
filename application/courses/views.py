@@ -16,7 +16,7 @@ def courses_create():
     form = CourseForm(request.form)
     if not form.validate():
         return render_template("/course/new/", form = form)
-    t = Course(form.name.data, form.description.data, form.core.data)
+    t = Course(form.name.data, form.description.data, form.core.data, form.ects.data)
     db.session().add(t)
     db.session().commit()
     return redirect(url_for("courses_index"))

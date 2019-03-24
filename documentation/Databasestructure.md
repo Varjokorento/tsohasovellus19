@@ -9,6 +9,7 @@ Course:
     core BOOLEAN
     likes Integer
     dislikes Integer
+    ects Integer
     
 ## Course_Comments -liitostaulu
 
