@@ -2,8 +2,10 @@
 
 {% block body %}
 {{ error }}
+<div class="container">
+<div class="text-center">
 <form method="POST" action="{{ url_for('auth_login') }}">
-  <table>
+  <table class="text-center">
     <tr>
       <td>
 	{{ form.username.label }}
@@ -26,4 +28,6 @@
       </td>
     </tr>
 </form>
+</div>
+</div>
 {% endblock %}
