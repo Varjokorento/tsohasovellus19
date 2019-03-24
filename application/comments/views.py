@@ -16,7 +16,7 @@ def new_comment():
     form = CommentForm(request.form)
 
     if not form.validate():
-        return render_template("/comment/new_comment", form = form)
+        return render_template("comments/addcomment.html", form = form)
 
     t = Comment(form.text.data, form.grade.data, form.workload.data)
     db.session().add(t)
