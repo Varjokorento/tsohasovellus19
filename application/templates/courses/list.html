@@ -38,7 +38,12 @@
       <form method="POST" action="{{ url_for('show_course', course_id=course.id) }}">
         <input class="btn btn-secondary btn-sm" type="submit" value="Additional Information"/>
     </form>
-  </tr>
+    <td>
+        <form method="POST" action="{{ url_for('course_delete', course_id=course.id) }}">
+            <input class="btn btn-danger btn-sm" type="submit" value="Delete"/>
+        </form>
+    </td>
+    </tr>
     {% endfor %}
   </table>
 </center>

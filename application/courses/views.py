@@ -10,7 +10,8 @@ def courses_index():
 @app.route("/course/showcourse/<course_id>", methods=["POST"])
 def show_course(course_id):
     course = Course.query.get(course_id)
-    return render_template("courses/showcourse.html", course = course)    
+    comments = Course.find_comments(course_id)
+    return render_template("courses/showcourse.html", course = course, comments = comments)    
 
 @app.route("/course/new/")
 def courses_form():
@@ -26,6 +27,14 @@ def courses_create():
     db.session().commit()
     return redirect(url_for("courses_index"))
 
+@app.route("/course/updateinfo/<course_id>/", methods=["POST"])
+def courses_update(course_id): 
+    print("Here")
+    print(course_id)
+    course = Course.query.get(course_id)
+    form = CourseForm(obj=course)
+    return render_template("courses/update.html", form = form, course_id = course_id)   
+
 @app.route("/course/like/<course_id>/", methods=["POST"])
 def course_add_like(course_id):
     t = Course.query.get(course_id)
@@ -40,4 +49,23 @@ def course_add_dislike(course_id):
     db.session().commit()
     return redirect(url_for("courses_index"))
 
+@app.route("/course/update/", methods=["POST"])
+def course_update():
+    form = CourseForm(request.form)
+    course = Course.query.get(form.course_id.data)
+    if not form.validate():
+        return render_template("/course/new.html", form = form)
+    course.name = form.name.data
+    course.description = form.name.description
+    course.core = form.core.data
+    course.ects = form.ects.data    
+    db.session().commit()
+    return redirect(url_for("courses_index"))
+
+@app.route("/course/delete/<course_id>/", methods=["POST"])
+def course_delete(course_id):
+    course = Course.query.get(course_id)
+    db.session().delete(course)
+    db.session().commit()
+    return redirect(url_for("courses_index"))
  
