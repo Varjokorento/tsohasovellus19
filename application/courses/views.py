@@ -33,8 +33,6 @@ def courses_create():
 @app.route("/course/updateinfo/<course_id>/", methods=["POST"])
 @login_required
 def courses_update(course_id): 
-    print("Here")
-    print(course_id)
     course = Course.query.get(course_id)
     form = CourseForm(obj=course)
     return render_template("courses/update.html", form = form, course_id = course_id)   
@@ -61,7 +59,7 @@ def course_update():
     if not form.validate():
         return render_template("/course/new.html", form = form)
     course.name = form.name.data
-    course.description = form.name.description
+    course.description = form.description.data
     course.core = form.core.data
     course.ects = form.ects.data    
     db.session().commit()
