@@ -1,23 +1,18 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table class="container text-center">
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Core</th>
-      <th>ECTS</th>
-    </tr>
-    <tr>
-      <td>{{ course.name }}</td>
-      <td>{{ course.description }}</td>
-      <td>{{ course.core }}</td>
-      <td>{{ course.ects}} </td>
-    <td>
+        <center>
+        <div class="container">
+        <div class="card" style="width: 15rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{course.name}}</h5>
+                <p class="card-text">{{course.description}}</p>
+                <div class="card-footer">{{course.core}} || {{course.ects}}</div>
+            </div>
+        </div>
         <form method="POST" action="{{ url_for('comment_form', course_id=course.id) }}">
-                    <input type="submit" value="Comment"/>
-         </form>
-    </td>
-    </tr>
-  </table>
+                    <input class="btn btn-primary" type="submit" value="Comment"/>
+        </form>
+    </div>
+</center>
 {% endblock %}

@@ -1,10 +1,10 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table class="container text-center">
+<center>
+  <table class="table" style="width: 15rem;">
     <tr>
       <th>Name</th>
-      <th>Description</th>
       <th>Core</th>
       <th>Likes</th>
       <th>Dislike</th>
@@ -13,31 +13,33 @@
     {% for course in courses %}
     <tr>
       <td>{{ course.name }}</td>
-      <td>{{ course.description }}</td>
       <td>{{ course.core }}</td>
-      <td>{{ course.likes}} </td>
-      <td>{{ course.dislikes}} </td>
-      <td>{{ course.ects}} </td>
+      <td>{{ course.likes}}</td>
+      <td>{{ course.dislikes}}</td>
+      <td>{{ course.ects}}</td>
+    </tr>
+    <tr>     
       <td>
         <form method="POST" action="{{ url_for('course_add_like', course_id=course.id) }}">
-            <input type="submit" value="Like"/>
+            <input class="btn btn-secondary btn-sm" type="submit" value="Like"/>
         </form>
      </td>
      <td>
         <form method="POST" action="{{ url_for('course_add_dislike', course_id=course.id) }}">
-            <input type="submit" value="Dislike"/>
+            <input class="btn btn-secondary btn-sm" type="submit" value="Dislike"/>
         </form>
     </td>
     <td>
         <form method="POST" action="{{ url_for('comment_form', course_id=course.id) }}">
-                    <input type="submit" value="Comment"/>
+                    <input class="btn btn-secondary btn-sm" type="submit" value="Comment"/>
          </form>
     </td>
     <td>    
       <form method="POST" action="{{ url_for('show_course', course_id=course.id) }}">
-        <input type="submit" value="Additional Information"/>
+        <input class="btn btn-secondary btn-sm" type="submit" value="Additional Information"/>
     </form>
-    </tr>
+  </tr>
     {% endfor %}
   </table>
+</center>
 {% endblock %}
