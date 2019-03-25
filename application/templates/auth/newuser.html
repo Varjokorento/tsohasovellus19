@@ -1,55 +1,20 @@
 {% extends "layout.html" %}
   
 {% block body %}
-<div class="form-control">
-    <div class="form-control">
+    
         <form method="POST" action="{{ url_for('create_new_user') }}">
-          <table>
-              <tr>
-                <td>  
-                  {{ form.name.label }}
-                </td>
-                <td>
-                  {{ form.name }}
-                </td>
-                  <ul>
-                    {% for error in form.name.errors %}
-                      <li>{{ error }}</li>
-                    {% endfor %}
-                  </ul>
-              </tr>
-              <tr>
-                <td>  
-                  {{ form.username.label }}
-                </td>
-                <td>
-                  {{ form.username }}
-                </td>
-                  <ul>
-                  {% for error in form.username.errors %}
-                    <li>{{ error }}</li>
-                  {% endfor %}
-                  </ul>
-              </tr>
-              <tr>
-              <td>  
-                  {{ form.password.label }}
-              </td>
-              <td>
-                  {{ form.password}}
-              </td>
-              <ul>
-                {% for error in form.password.errors %}
-                  <li>{{ error }}</li>
-                {% endfor %}
-              </ul>
-            </tr>
-            </tr>
-            <tr>
-        <td colspan="2">
-          <input type="submit" value="Register"/>
-        </td>
-            </tr>
-        </form>
-</form>
+            <div class="form-group" style="margin-top: 10px;">
+                <p>Name</p>
+                {{ form.name }} 
+            </div>
+            <div class="form-group">
+                <p>Username</p>
+                {{ form.username }} 
+            </div>
+                <div class="form-group">
+                <p>Password </p>
+                {{ form.password }}
+                </div>
+            <input class="btn btn-primary" style="margin-bottom: 100px;" type="submit" value="Register">
+      </form>      
 {% endblock %}

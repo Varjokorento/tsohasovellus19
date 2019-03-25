@@ -2,32 +2,18 @@
 
 {% block body %}
 {{ error }}
-<div class="container">
-<div class="text-center">
-<form method="POST" action="{{ url_for('auth_login') }}">
-  <table class="text-center">
-    <tr>
-      <td>
-	{{ form.username.label }}
-      </td>
-      <td>
-	{{ form.username }}
-      </td>
-    </tr>
-    <tr>
-      <td>
-	{{ form.password.label }}
-      </td>
-      <td>
-	{{ form.password }}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-	<input type="submit" value="Login"/>
-      </td>
-    </tr>
-</form>
-</div>
-</div>
+<center>
+
+            <form method="POST" action="{{ url_for('auth_login') }}">
+                  <div class="form-group" style="margin-top: 10px;">
+                  <p>Username</p>
+                  {{ form.username }} 
+                  </div>
+                  <div class="form-group">
+                  <p>Password </p>
+                  {{ form.password }}
+                  </div>
+                  <input class="btn btn-primary" style="margin-bottom: 100px;" type="submit" value="Log In">
+            </form>
+</center>
 {% endblock %}
