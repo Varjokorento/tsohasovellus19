@@ -7,7 +7,7 @@ from application.models.models import Comment
 @app.route("/comment/<course_id>", methods=["POST"])
 @login_required
 def comment_form(course_id):
-    return render_template("comments/addcomment.html", form = CommentForm())
+    return render_template("comments/addcomment.html", form = CommentForm(), course_id = course_id)
 
 
 @app.route("/comment/new_comment", methods=["POST"])
@@ -18,7 +18,7 @@ def new_comment():
     if not form.validate():
         return render_template("comments/addcomment.html", form = form)
 
-    t = Comment(form.text.data, form.grade.data, form.workload.data)
+    t = Comment(form.text.data, form.grade.data, form.workload.data, form.course_id.data)
     db.session().add(t)
     db.session().commit()
   

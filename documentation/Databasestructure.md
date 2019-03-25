@@ -11,18 +11,13 @@ Course:
     dislikes Integer
     ects Integer
     
-## Course_Comments -liitostaulu
-
-Course_Comments:
-    id Integer PRIMARY KEY
-    course_id Integer FOREIGN KEY REFERENCES(Course)
-    comment_id Integer FOREIGN KEY REFERENCES(Comment)
 
 
-## Comment -liitostaulu
+## Comment -taulu
 
 Comment:
     id Integer PRIMARY KEY
+    course_id Integer FOREIGN KEY REFERENCES(Course)
     comment_text VARCHAR
     comment_grade Integer
     comment_workload Integer

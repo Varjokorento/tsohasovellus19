@@ -22,11 +22,13 @@ class Comment(db.Model):
     text = db.Column(db.String(1000), nullable= False)
     grade = db.Column(db.Integer, nullable= False)
     workload = db.Column(db.Integer, nullable= False)
+    course_id = db.Column(db.Integer, nullable=False)
     
-    def __init__(self, text, grade, workload):
+    def __init__(self, text, grade, workload, course_id):
         self.text = text
         self.grade = grade
         self.workload = workload
+        self.course_id = course_id
 
 class User(db.Model):
 
