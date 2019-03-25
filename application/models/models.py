@@ -1,4 +1,6 @@
 from application import db
+from sqlalchemy.sql import text
+
 
 class Course(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -18,13 +20,11 @@ class Course(db.Model):
         self.dislikes =0
 
     @staticmethod
-    def find_comments():
-        course_id = self.id
-        stmt = text("SELECT COUNT(*) FROM Comment"
+    def find_comments(course_id):
+        stmt = text("SELECT Comment.text, Comment.grade, Comment.workload FROM Comment"
                     " WHERE (Comment.course_id = "+ course_id +")")
         res = db.engine.execute(stmt)
-        for row in res:
-            print(row[0])
+        return res
 
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
