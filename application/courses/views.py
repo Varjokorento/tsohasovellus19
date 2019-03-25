@@ -2,6 +2,7 @@ from application import app, db
 from flask import render_template, request, redirect, url_for
 from application.models.models import Course
 from application.courses.CourseForm import CourseForm
+from sqlalchemy.sql import text
 
 @app.route("/course", methods=["GET"])
 def courses_index():
@@ -65,6 +66,8 @@ def course_update():
 @app.route("/course/delete/<course_id>/", methods=["POST"])
 def course_delete(course_id):
     course = Course.query.get(course_id)
+    stmt = text("DELETE FROM Comment WHERE Comment.course_id = :course_id").params(course_id=course_id)
+    db.session().execute(stmt)
     db.session().delete(course)
     db.session().commit()
     return redirect(url_for("courses_index"))
