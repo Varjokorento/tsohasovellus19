@@ -7,7 +7,6 @@ from application.models.models import Comment
 @app.route("/comment/<course_id>", methods=["POST"])
 @login_required
 def comment_form(course_id):
-    print(course_id)
     return render_template("comments/addcomment.html", form = CommentForm(), course_id = course_id)
 
 

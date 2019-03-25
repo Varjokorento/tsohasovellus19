@@ -7,6 +7,11 @@ from application.courses.CourseForm import CourseForm
 def courses_index():
     return render_template("courses/list.html", courses = Course.query.all())
 
+@app.route("/course/showcourse/<course_id>", methods=["POST"])
+def show_course(course_id):
+    course = Course.query.get(course_id)
+    return render_template("courses/showcourse.html", course = course)    
+
 @app.route("/course/new/")
 def courses_form():
     return render_template("courses/new.html", form = CourseForm())
@@ -21,7 +26,7 @@ def courses_create():
     db.session().commit()
     return redirect(url_for("courses_index"))
 
-@app.route("/course/<course_id>/", methods=["POST"])
+@app.route("/course/like/<course_id>/", methods=["POST"])
 def course_add_like(course_id):
     t = Course.query.get(course_id)
     t.likes = t.likes +1 

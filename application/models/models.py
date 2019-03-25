@@ -17,6 +17,15 @@ class Course(db.Model):
         self.likes= 0
         self.dislikes =0
 
+    @staticmethod
+    def find_comments():
+        course_id = self.id
+        stmt = text("SELECT COUNT(*) FROM Comment"
+                    " WHERE (Comment.course_id = "+ course_id +")")
+        res = db.engine.execute(stmt)
+        for row in res:
+            print(row[0])
+
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(1000), nullable= False)
