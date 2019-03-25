@@ -21,7 +21,7 @@ class Course(db.Model):
 
     @staticmethod
     def find_comments(course_id):
-        stmt = text("SELECT Comment.text, Comment.grade, Comment.workload FROM Comment"
+        stmt = text("SELECT Comment.id, Comment.text, Comment.grade, Comment.workload FROM Comment"
                     " WHERE (Comment.course_id = "+ course_id +")")
         res = db.engine.execute(stmt)
         return res

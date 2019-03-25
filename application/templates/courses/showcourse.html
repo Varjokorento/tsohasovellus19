@@ -21,11 +21,15 @@
         {% for comment in comments %} 
         <div class="card" style="width: 10rem;">
                 <div class="card-body">
-                    <h5 class="card-title">{{comment.text}}</h5>
+
+                    <h5 class="card-title">{{comment.text}} {{comment.id}}</h5>
                     <p class="card-text">{{comment.text}}</p>
                     <div class="card-footer">{{comment.grade}} || {{comment.workload}}</div>
                 </div>
-            </div>
+        </div>
+        <form method="POST" action="{{ url_for('delete_comment', comment_id=comment.id) }}">
+                <input class="btn btn-danger" type="submit" value="Delete"/>
+        </form>
         {% endfor %}
         {% endif %}
     </div>
