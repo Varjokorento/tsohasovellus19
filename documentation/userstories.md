@@ -13,3 +13,7 @@ Opiskelijana haluan nähdä, mitä kursseja pidetään kaikkein työläimpänä.
 Opiskelijana haluan pystyä kirjautumaan sivulle
 
 Opiskelijana haluan pystyä vertailemaan arvosanojani muihin
+
+Ylläpitäjänä haluan pystyä poistamaan kommentteja
+
+Ylläpitäjänä haluan pystyä poistamaan kursseja
