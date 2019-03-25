@@ -7,7 +7,7 @@
     </head>
     <div class="container">
             {% if current_user.is_authenticated %}
-            <nav class="navbar navbar-light bg-light">
+            <nav class="navbar navbar-light bg-light" style="width: 15rem;">
                 <p>Kirjautunut nimellä {{ current_user.name }}</p>
                 <button class="btn btn-link btn-sm"><a href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a></button>
             </nav>
@@ -20,7 +20,7 @@
         </nav>
         <h1 class="text-center">Matalaita</h1>
         <div class="text-center">
-            <img src= {{ url_for('static', filename = 'images/intro.jpg') }} alt="introimage" width="200" height="150">
+            <img src= {{ url_for('static', filename = 'images/intro.jpg') }} alt="introimage" width="400" height="350">
         </div>
             <h3 class="text-center"><a href="{{ url_for('courses_index') }}">List courses</a></h3>
             {% if current_user.is_authenticated %}
