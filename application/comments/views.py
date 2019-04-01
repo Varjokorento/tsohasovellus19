@@ -27,6 +27,7 @@ def new_comment():
     return redirect(url_for("courses_index"))
 
 @app.route("/comment/delete/<comment_id>", methods=["POST"])
+@login_required
 def delete_comment(comment_id):
     comment = Comment.query.get(comment_id)
     db.session().delete(comment)

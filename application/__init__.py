@@ -20,6 +20,7 @@ from application import views
 from application.models import models
 from application.courses import views
 from application.comments import views
+from application.statistics import views
 
 from application.auth import views
 from application.auth import models 

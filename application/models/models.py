@@ -26,6 +26,25 @@ class Course(db.Model):
         res = db.engine.execute(stmt)
         return res
 
+    @staticmethod
+    def course_by_grade():
+        stmt = text("SELECT Course.name, AVG(Comment.grade) from Course JOIN Comment on course.id = Comment.course_id GROUP BY Course.name")
+        res = db.engine.execute(stmt)
+        response = []
+        for row in res:
+            response.append({"name":row[0], "avg":row[1]})
+        return response
+
+
+    @staticmethod
+    def course_by_workload():
+        stmt = text("SELECT Course.name, AVG(Comment.workload) from Course JOIN Comment on course.id = Comment.course_id GROUP BY Course.name")
+        res = db.engine.execute(stmt)
+        response = []
+        for row in res:
+            response.append({"name":row[0], "avgworkload":row[1]})
+        return response
+
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(1000), nullable= False)

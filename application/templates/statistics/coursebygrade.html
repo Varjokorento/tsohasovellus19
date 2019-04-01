@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block body %}
+{{ error }}
+<center>
+      <ul>
+                  {% if courses_by_grade is defined %}
+            <p>
+                 Courses by grade:
+            </p>
+                  <ul>
+                  {% for course in courses_by_grade %}
+                  <li>
+                        {{course.name}} {{course.avg}}
+                  </li>
+                  {% endfor %}
+                  </ul>
+                  {% endif %} 
+            </li>
+      </ul>
+      <ul>
+            {% if courses_by_workload is defined %}
+            <p>
+                  Courses by workload:
+             </p>
+                   <ul>
+                   {% for course in courses_by_workload %}
+                   <li>
+                         {{course.name}} {{course.avgworkload}}
+                   </li>
+                   {% endfor %}
+                   </ul>
+                   {% endif %} 
+             </li>
+      </ul>
+</center>
+{% endblock %}
