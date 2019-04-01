@@ -23,6 +23,7 @@
             <img src= {{ url_for('static', filename = 'images/intro.jpg') }} alt="introimage" width="400" height="350">
         </div>
             <h3 class="text-center"><a href="{{ url_for('courses_index') }}">List courses</a></h3>
+            <h3 class="text-center"><a href="{{ url_for('course_statistics') }}">Course statistics</a></h3>
             {% if current_user.is_authenticated %}
                 <h3 class="text-center" ><a href="{{ url_for('courses_form') }}">Add a course</a></h3>
             {% endif %}

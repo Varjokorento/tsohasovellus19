@@ -4,8 +4,11 @@ from application.comments.CommentForm import CommentForm
 from application.models.models import Course
 
 
-@app.route("/coursebygrade", methods=["GET"])
-def course_by_grade():
-    return render_template("statistics/coursebygrade.html", courses_by_workload=Course.course_by_workload(), courses_by_grade=Course.course_by_grade() )
+@app.route("/coursestatistics", methods=["GET"])
+def course_statistics():
+    return render_template("statistics/coursestatistics.html", 
+    courses_by_ects=Course.course_by_ects(), 
+    courses_by_workload=Course.course_by_workload(), 
+    courses_by_grade=Course.course_by_grade())
 
 

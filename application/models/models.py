@@ -45,6 +45,15 @@ class Course(db.Model):
             response.append({"name":row[0], "avgworkload":row[1]})
         return response
 
+    @staticmethod 
+    def course_by_ects():
+        stmt = text("Select Course.name, (Course.ects/AVG(Comment.workload)) from Course JOIN Comment on course.id = Comment.course_id GROUP BY Course.name")
+        res = db.engine.execute(stmt)
+        response = []
+        for row in res:
+            response.append({"name":row[0], "ects":row[1]})
+        return response
+
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(1000), nullable= False)
