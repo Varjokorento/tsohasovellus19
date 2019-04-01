@@ -3,50 +3,61 @@
 {% block body %}
 {{ error }}
 <center>
-      <ul>
+
+
                   {% if courses_by_grade is defined %}
-            <p>
-                 Courses by grade:
-            </p>
-                  <ul>
-                  {% for course in courses_by_grade %}
-                  <li>
-                        {{course.name}} {{course.avg}}
-                  </li>
-                  {% endfor %}
-                  </ul>
-                  {% endif %} 
-            </li>
-      </ul>
-      <ul>
-            {% if courses_by_workload is defined %}
-            <p>
-                  Courses by workload:
-             </p>
-                   <ul>
-                   {% for course in courses_by_workload %}
-                   <li>
-                         {{course.name}} {{course.avgworkload}}
-                   </li>
-                   {% endfor %}
-                   </ul>
-                   {% endif %} 
-             </li>
-      </ul>
-      <ul>
+            <table class="table">
+                  <thead>
+                        <tr>
+                              <th scope="col">Course Name</th>
+                              <th scope="col">Course Average Grade</th>
+                        </tr>
+                  </thead>
+                  <tbody>
+                        {% for course in courses_by_grade %}    
+                        <tr>
+                              <td>{{course.name}}</td>             
+                              <td>{{course.avg}}</td> 
+                        </tr>
+                        {% endfor %}
+                  </tbody>
+          </table>
+                  {% endif %}             
+                  {% if courses_by_workload is defined %}
+            <table class="table">
+                  <thead>
+                        <tr>
+                              <th scope="col">Course Name</th>
+                              <th scope="col">Course Workload</th>
+                        </tr>
+                  </thead>
+                  <tbody>
+                        {% for course in courses_by_workload %}    
+                        <tr>
+                              <td>{{course.name}}</td>             
+                              <td>{{course.avgworkload}}</td> 
+                        </tr>
+                        {% endfor %}
+                  </tbody>
+          </table>
+            {% endif %}        
             {% if courses_by_ects is defined %}
-            <p>
-                  Courses by ects:
-             </p>
-                   <ul>
-                   {% for course in courses_by_ects %}
-                   <li>
-                         {{course.name}} {{course.ects}}
-                   </li>
-                   {% endfor %}
-                   </ul>
-                   {% endif %} 
-             </li>
-      </ul>
+            <table class="table">
+                  <thead>
+                        <tr>
+                              <th scope="col">Course Name</th>
+                              <th scope="col">Course ECTS</th>
+                        </tr>
+                  </thead>
+                  <tbody>
+                        {% for course in courses_by_ects %}    
+                        <tr>
+                              <td>{{course.name}}</td>             
+                              <td>{{course.ects}}</td> 
+                        </tr>
+                        {% endfor %}
+                  </tbody>
+          </table>
+                  {% endif %} 
 </center>
 {% endblock %}
