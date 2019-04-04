@@ -23,3 +23,5 @@ password: root
 [Vaatimusmäärittelyt](https://github.com/Varjokorento/tsohasovellus19/blob/master/documentation/Specifications.md)
 
 [Tietokantakuvaus](https://github.com/Varjokorento/tsohasovellus19/blob/master/documentation/Databasestructure.md)
+
+[Käyttöohje](https://github.com/Varjokorento/tsohasovellus19/blob/master/documentation/Howtouse.md)
