@@ -19,6 +19,7 @@ from application import views
 
 from application.models import models
 from application.courses import views
+from application.questions import views
 from application.comments import views
 from application.statistics import views
 

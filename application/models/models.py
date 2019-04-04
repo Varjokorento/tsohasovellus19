@@ -26,6 +26,15 @@ class Course(db.Model):
         res = db.engine.execute(stmt)
         return res
 
+    @staticmethod 
+    def find_questions(course_id):
+        stmt = text("SELECT Question.id, Question.question, Question.answer, Question.difficulty FROM Question"
+                    " WHERE (Question.course_id = :course_id)").params(course_id = course_id)
+        res = db.engine.execute(stmt)
+        print(res)
+        return res
+        
+
     @staticmethod
     def course_by_grade():
         stmt = text("SELECT Course.name, AVG(Comment.grade) from Course JOIN Comment on course.id = Comment.course_id GROUP BY Course.name")
@@ -96,3 +105,16 @@ class User(db.Model):
 
     def is_authenticated(self):
         return True
+
+class Question(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    question = db.Column(db.String(1000), nullable= False)
+    answer = db.Column(db.String(1000), nullable= True)
+    difficulty = db.Column(db.Integer, nullable= True)
+    course_id = db.Column(db.Integer, nullable=False)
+    
+    def __init__(self, question, answer, difficulty, course_id):
+        self.question = question
+        self.ansswer = answer
+        self.difficulty = difficulty
+        self.course_id = course_id

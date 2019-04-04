@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<div class="form-control">
+  <form method="POST" action="{{ url_for('new_question') }}">
+    <table>
+        <tr>
+          <td>  
+          {{ form.question.label }}
+	</td>
+	<td>
+	  {{ form.question }}
+  </td>
+  <ul>
+	    {% for error in form.question.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+</tr>
+<tr>
+  <td>
+	  {{ form.answer.label }}
+	</td>
+	<td>
+	  {{ form.answer }}
+  </td>
+  <ul>
+	    {% for error in form.answer.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+</tr>
+<tr>
+  <td>
+	  {{ form.difficulty.label }}
+	</td>
+	<td>
+	  {{ form.difficulty }}
+  </td>
+  <ul>
+	    {% for error in form.difficulty.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+</tr>
+			</tr>
+			<tr>
+					{{ form.course_id(value=course_id) }}
+			</tr>
+      <tr>
+	<td colspan="2">
+	  <input type="submit" value="Question"/>
+	</td>
+      </tr>
+  </form>
+{% endblock %}

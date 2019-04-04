@@ -13,7 +13,8 @@ def courses_index():
 def show_course(course_id):
     course = Course.query.get(course_id)
     comments = Course.find_comments(course_id)
-    return render_template("courses/showcourse.html", course = course, comments = comments)    
+    questions = Course.find_questions(course_id)
+    return render_template("courses/showcourse.html", course = course, comments = comments, questions = questions)    
 
 @app.route("/course/new/")
 @login_required
