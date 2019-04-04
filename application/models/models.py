@@ -115,6 +115,6 @@ class Question(db.Model):
     
     def __init__(self, question, answer, difficulty, course_id):
         self.question = question
-        self.ansswer = answer
+        self.answer = answer
         self.difficulty = difficulty
         self.course_id = course_id
