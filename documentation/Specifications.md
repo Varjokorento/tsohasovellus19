@@ -10,6 +10,10 @@ Sivusto koostuu kurssikuvauksista. Kursseissa on aina nimi, lyhyt esittely sekä
 
 Jokaista kurssia tulee pystyä kommentoida. Kommentissa on mukana myös kommentoijan saama arvosana kurssista sekä hänen näkemyksensä kurssin työläydestä. Tämä tieto on pakollinen. 
 
+# Kysymystietopankki
+
+Jokaiselle kurssille voi lisätä kysymykset, joita kurssin tentissä kysytään/muuten syytä osata. Kysymyksille voidaan myös lisätä vaikeusaste. Lisäksi käyttäjä voi lisätä tiedon kysymykseen siitä, että kysyttiinkö juuri tätä kysymystä tai tämänkaltaista kysymystä tentissä. Näin kysymysten yleisyyden pystyisi katsomaan sivustolta.
+
 ## Käytetyt teknologiat
 
 Flask

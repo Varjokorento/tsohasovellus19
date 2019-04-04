@@ -22,6 +22,12 @@ Comment:
     comment_grade Integer
     comment_workload Integer
 
+## Question -taulu
+    id Integer PRIMARY KEY
+    course_id Integer FOREIGN KEY REFERENCES(Course)
+    question VARCHAR
+    answer VARCHAR
+    difficulty Integer
     
 ## Course_Students -liitostaulu
 
