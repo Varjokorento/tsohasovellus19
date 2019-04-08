@@ -1,6 +1,5 @@
-from application import app, db
+from application import app, db, login_required
 from flask import render_template, request, redirect, url_for
-from flask_login import login_required
 from application.models.models import Course
 from application.courses.CourseForm import CourseForm
 from sqlalchemy.sql import text
@@ -17,7 +16,7 @@ def show_course(course_id):
     return render_template("courses/showcourse.html", course = course, comments = comments, questions = questions)    
 
 @app.route("/course/new/")
-@login_required
+@login_required(role="STD")
 def courses_form():
     return render_template("courses/new.html", form = CourseForm())
 
@@ -32,7 +31,7 @@ def courses_create():
     return redirect(url_for("courses_index"))
 
 @app.route("/course/updateinfo/<course_id>/", methods=["POST"])
-@login_required
+@login_required(role="STD")
 def courses_update(course_id): 
     course = Course.query.get(course_id)
     form = CourseForm(obj=course)
@@ -53,7 +52,7 @@ def course_add_dislike(course_id):
     return redirect(url_for("courses_index"))
 
 @app.route("/course/update/", methods=["POST"])
-@login_required
+@login_required(role="STD")
 def course_update():
     form = CourseForm(request.form)
     course = Course.query.get(form.course_id.data)
@@ -67,7 +66,7 @@ def course_update():
     return redirect(url_for("courses_index"))
 
 @app.route("/course/delete/<course_id>/", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def course_delete(course_id):
     course = Course.query.get(course_id)
     stmt = text("DELETE FROM Comment WHERE Comment.course_id = :course_id").params(course_id=course_id)

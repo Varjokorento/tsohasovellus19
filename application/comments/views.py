@@ -1,17 +1,16 @@
-from application import app, db
+from application import app, db, login_required
 from flask import render_template, request, redirect, url_for
-from flask_login import login_required
 from application.comments.CommentForm import CommentForm
 from application.models.models import Comment
 
 @app.route("/comment/<course_id>", methods=["POST"])
-@login_required
+@login_required(role="STD")
 def comment_form(course_id):
     return render_template("comments/addcomment.html", form = CommentForm(), course_id = course_id)
 
 
 @app.route("/comment/new_comment", methods=["POST"])
-@login_required
+@login_required(role="STD")
 def new_comment():
     form = CommentForm(request.form)
 
@@ -27,7 +26,7 @@ def new_comment():
     return redirect(url_for("courses_index"))
 
 @app.route("/comment/delete/<comment_id>", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def delete_comment(comment_id):
     comment = Comment.query.get(comment_id)
     db.session().delete(comment)
