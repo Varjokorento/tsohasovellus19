@@ -17,8 +17,6 @@ def create_new_user():
         return render_template("/comment/new_comment", form = form)
     role = "STD"
     t = User(form.name.data, form.username.data, form.password.data, role)
-    print("NEW USER")
-    print(t.role)
     db.session().add(t)
     db.session().commit()
   
@@ -32,7 +30,6 @@ def auth_login():
         return render_template("auth/loginform.html", form = LoginForm())
 
     form = LoginForm(request.form)
-    # mahdolliset validoinnit
     user = User.query.filter_by(username=form.username.data, password=form.password.data).first()
     print(user.role);
     if not user:

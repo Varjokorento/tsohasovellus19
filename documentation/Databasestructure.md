@@ -36,8 +36,11 @@ Course_students:
     Student_id Integer FOREIGN KEY REFERENCES(Student)
     Course_id Integer FOREIGN KEY REFERENCES(Course)
 
-## Student-taulu
-Student
+## User-taulu
     id Integer PRIMARY KEY
-    nickname VARCHAR
+    DateTime date_created
+    DateTime date_modified
+    name VARCHAR
+    username VARCHAR
     password VARCHAR
+    role = VARCHAR

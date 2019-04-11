@@ -130,3 +130,12 @@ class UserRole(db.Model):
 
     def __init__(self, roleName):
         self.roleName = roleName
+
+class CourseStudent(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    course_id = db.Column(db.Integer, nullable=False)
+    student_id = db.Column(db.Integer, nullable=False)
+
+    def __init__(self, course_id, student_id):
+        self.course_id = course_id
+        self.student_id = student_id

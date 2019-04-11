@@ -20,6 +20,9 @@
         <form method="POST" action="{{ url_for('courses_update', course_id=course.id) }}">
                 <input class="btn btn-secondary" type="submit" value="Edit information"/>
         </form>
+        <form method="POST" action="{{ url_for('mark_course_as_taken', course_id=course.id, student_id=current_user.get_id()) }}">
+            <input class="btn btn-danger" type="submit" value="I have taken this course"/>
+        </form>
         {% endif %}
         {% if comments is defined %}
         <h4> Comments </h4>

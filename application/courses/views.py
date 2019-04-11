@@ -51,6 +51,25 @@ def course_add_dislike(course_id):
     db.session().commit()
     return redirect(url_for("courses_index"))
 
+@app.route("/course/taken<course_id><student_id>", methods=["POST"])
+def mark_course_as_taken(course_id, student_id):
+    stmt = text("INSERT INTO Course_Student(course_id, student_id) VALUES(:course_id, :student_id)").params(course_id=course_id, student_id=student_id)
+    db.session().execute(stmt)
+    db.session().commit()
+
+    return redirect(url_for("courses_index"))
+
+@app.route("/course/mycourse/<student_id>")
+def show_my_courses(student_id):
+    stmt = text("SELECT DISTINCT Course.name FROM COURSE_STUDENT JOIN COURSE ON Course.id = Course_Student.course_id WHERE student_id = :student_id ").params(student_id=student_id)
+    res = db.engine.execute(stmt)
+    response = []
+    for row in res:
+        response.append({"name":row[0]})
+    return render_template("courses/mycourses.html", courses = response)
+    
+
+
 @app.route("/course/update/", methods=["POST"])
 @login_required(role="STD")
 def course_update():

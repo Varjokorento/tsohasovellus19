@@ -28,11 +28,8 @@ from functools import wraps
 def login_required(role="STD"):
     def wrapper(fn):
         @wraps(fn)
-        def decorated_view(*args, **kwargs):
-            print(current_user) 
-            print("I AM HERE")
+        def decorated_view(*args, **kwargs):  
             roles = current_user.roles()
-            print(roles)
             if not current_user:
                 return login_manager.unauthorized()
 
@@ -71,7 +68,6 @@ from application.comments import views
 from application.statistics import views
 
 from application.auth import views
-from application.auth import models 
 
 # kirjautuminen
 from application.models.models import User
