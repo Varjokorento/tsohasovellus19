@@ -5,6 +5,10 @@ from application import app, db
 from application.models.models import User 
 from application.auth.forms import NewUserForm, LoginForm
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
 @app.route("/auth/new_user", methods=["GET"]) 
 def new_user_form():
     return render_template("auth/newuser.html", form = NewUserForm())

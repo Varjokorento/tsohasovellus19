@@ -4,6 +4,10 @@ from application.models.models import Course
 from application.courses.CourseForm import CourseForm
 from sqlalchemy.sql import text
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
 @app.route("/course", methods=["GET"])
 def courses_index():
     return render_template("courses/list.html", courses = Course.query.all())

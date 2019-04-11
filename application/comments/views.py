@@ -3,6 +3,10 @@ from flask import render_template, request, redirect, url_for
 from application.comments.CommentForm import CommentForm
 from application.models.models import Comment
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
 @app.route("/comment/<course_id>", methods=["POST"])
 @login_required(role="STD")
 def comment_form(course_id):

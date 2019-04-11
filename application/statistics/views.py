@@ -4,6 +4,10 @@ from application.comments.CommentForm import CommentForm
 from application.models.models import Course
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
 @app.route("/coursestatistics", methods=["GET"])
 def course_statistics():
     return render_template("statistics/coursestatistics.html", 
