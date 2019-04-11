@@ -5,29 +5,26 @@
         <title>Demo</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
-    <div class="container">
-            {% if current_user.is_authenticated %}
-            <nav class="navbar navbar-light bg-light" style="width: 15rem;">
-                <p>Kirjautunut nimellä {{ current_user.name }}</p>
-                <button class="btn btn-link btn-sm"><a href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a></button>
-            </nav>
-            {% else %}
+   <div class="container">
             <nav class="navbar navbar-light bg-light">
-                <button class="btn btn-link btn-sm"><a class="navbar-brand" href="{{ url_for('auth_login') }}">Kirjaudu</a></button>
-                <button class="btn btn-link btn-sm"><a class="navbar-brand" href="{{ url_for('create_new_user') }}">Rekisteröidy</a></button>
-            </nav>
+             {% if current_user.is_authenticated %}
+                <div>{{ current_user.name }}</div>
+                <button class="btn btn-link btn-sm"><a class="navbar-brand" href="{{ url_for('auth_logout') }}">Log out</a></button>
+                {% else %}
+                <button class="btn btn-link btn-sm"><a class="navbar-brand" href="{{ url_for('auth_login') }}">Log in</a></button>
+                <button class="btn btn-link btn-sm"><a class="navbar-brand" href="{{ url_for('create_new_user') }}">Sign up</a></button>
             {% endif %}
-        </nav>
+                <button class="btn btn-link btn-sm"><a class="navbar-brand" href="{{ url_for('courses_index') }}">All Courses</a>
+                <button class="btn btn-link btn-sm"><a class="navbar-brand" href="{{ url_for('course_statistics') }}">Course Statistics</a>
+            {% if current_user.is_authenticated %}
+                <button class="btn btn-link btn-sm"><a class="navbar-brand" href="{{ url_for('courses_form') }}">Add a course</a>
+                <button class="btn btn-link btn-sm"><a class="navbar-brand" href="{{  url_for('show_my_courses', student_id=current_user.get_id())}}">My Courses</a>
+              {% endif %}
+            </nav>
         <h1 class="text-center">Matalaita</h1>
         <div class="text-center">
             <img src= {{ url_for('static', filename = 'images/intro.jpg') }} alt="introimage" width="400" height="350">
         </div>
-            <h3 class="text-center"><a href="{{ url_for('courses_index') }}">List courses</a></h3>
-            <h3 class="text-center"><a href="{{ url_for('course_statistics') }}">Course statistics</a></h3>
-            {% if current_user.is_authenticated %}
-                <h3 class="text-center" ><a href="{{ url_for('courses_form') }}">Add a course</a></h3>
-                <h3 class="text-center" ><a href="{{ url_for('show_my_courses', student_id=current_user.get_id()) }}">My Courses</a></h3>
-            {% endif %}
         <div class="text-center">
             <body>
             {% block body%}
@@ -36,5 +33,6 @@
             </body>
             
         </div>
-    </div>  
+    </div>
+</div>
 </html>

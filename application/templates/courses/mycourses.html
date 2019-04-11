@@ -2,13 +2,13 @@
 
 {% block body %}
 {% if courses is defined %}
+<center>
+    <h2>My Courses</h2>
+<ul class="list-group">
 {% for course in courses %} 
- <div class="card" style="width: 10rem;">
-         <div class="card-body">
-             <h5 class="card-title">{{course.name}}</h5>
-         </div>
- </div>
+    <li class="list-group-item">{{course.name}}</li>
  {% endfor %}
-
+</ul>
+</center>
  {% endif %}
  {% endblock %}
