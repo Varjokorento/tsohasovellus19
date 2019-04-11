@@ -25,11 +25,14 @@ login_manager.login_message = "Please login to use this functionality."
 # roles in login_required
 from functools import wraps
 
-def login_required(role="ANY"):
+def login_required(role="STD"):
     def wrapper(fn):
         @wraps(fn)
         def decorated_view(*args, **kwargs):
             print(current_user) 
+            print("I AM HERE")
+            roles = current_user.roles()
+            print(roles)
             if not current_user:
                 return login_manager.unauthorized()
 
@@ -38,7 +41,7 @@ def login_required(role="ANY"):
             
             unauthorized = False
 
-            if role != "ANY":
+            if role != "STD":
                 unauthorized = True
                 
                 for user_role in current_user.roles():
@@ -74,6 +77,8 @@ from application.auth import models
 from application.models.models import User
 from os import urandom
 app.config["SECRET_KEY"] = urandom(32)
+
+db.drop_all();
 
 try: 
     db.create_all()

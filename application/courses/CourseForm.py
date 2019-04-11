@@ -5,7 +5,7 @@ class CourseForm(FlaskForm):
     name = StringField("name", [validators.required()])
     description = TextAreaField("description", [validators.required()])
     core = BooleanField("core")
-    ects = IntegerField("ects")
+    ects = IntegerField("ects", [validators.NumberRange(1, 60)])
     course_id = HiddenField()
     class Meta:
         csrf = False

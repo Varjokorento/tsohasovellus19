@@ -3,8 +3,8 @@ from wtforms import StringField, TextAreaField, IntegerField, validators, Hidden
 
 class CommentForm(FlaskForm):
     text = TextAreaField("text", [validators.Length(min=10), validators.required()])
-    grade = IntegerField("grade", [validators.required()])
-    workload = IntegerField("workload", [validators.required()])
+    grade = IntegerField("grade", [validators.required(), validators.NumberRange(1, 5)])
+    workload = IntegerField("workload", [validators.required(), validators.NumberRange(1, 5)])
     course_id = HiddenField()
     class Meta:
         csrf = False
