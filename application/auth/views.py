@@ -19,7 +19,7 @@ def create_new_user():
 
     if not form.validate():
         return render_template("/comment/new_comment", form = form)
-    role = "A"
+    role = "S"
     t = User(form.name.data, form.username.data, form.password.data, role)
     db.session().add(t)
     db.session().commit()
