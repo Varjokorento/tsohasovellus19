@@ -1,68 +1,53 @@
 {% extends "layout.html" %}
   
 {% block body %}
-<div class="form-control">
-    <div class="form-control">
-        <form method="POST" action="{{ url_for('courses_create') }}">
-          <table>
-              <tr>
-                <td>  
-                {{ form.name.label }}
-        </td>
-        <td>
-          {{ form.name }}
-        </td>
-        <ul>
-            {% for error in form.name.errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
-          </ul>
-      </tr>
-      <tr>
-        <td>
-          {{ form.description.label }}
-        </td>
-        <td>
-          {{ form.description }}
-        </td>
-        <ul>
-            {% for error in form.description.errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
-          </ul>
-      </tr>
-      <tr>
-        <td>
-          {{ form.core.label }}
-        </td>
-        <td>
-          {{ form.core }}
-        </td>
-        <ul>
-            {% for error in form.core.errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
-          </ul>
-      </tr>
-      <tr>
-        <td>
-          {{ form.ects.label }}
-        </td>
-        <td>
-          {{ form.ects }}
-        </td>
-        <ul>
-            {% for error in form.ects.errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
-          </ul>
-      </tr>
-            </tr>
-            <tr>
-        <td colspan="2">
-          <input type="submit" value="Course"/>
-        </td>
-            </tr>
-        </form>
+
+<div class="container">
+    <form method="POST" action="{{ url_for('courses_create') }}">
+		
+				<p class="h4 mb-4">{{form.name.label}}</p>
+				<div>{{ form.name }}</div>
+				<ul>
+						{% for error in form.name.errors %}
+						<div class="alert alert-danger" role="alert">
+								{{ error }}
+						</div>
+						{% endfor %}
+				</ul>
+				<p class="h4 mb-4">{{form.description.label }}</p>
+				<p>Write a short description for the course</p> 
+				<div>{{ form.description}}</div>
+						{% for error in form.description.errors  %}
+						<div class="alert alert-danger" role="alert">
+								{{ error }}
+						</div>
+						{% endfor %}
+		
+				<p class="h4 mb-4">  {{ form.core.label }}</p>
+				<p>Is the course an core course for Computer Science?.</p>
+				<div>{{form.core }}</div>
+				<ul>
+						{% for error in form.core.errors %}
+						<div class="alert alert-danger" role="alert">
+						{{ error }}
+						</div>
+						{% endfor %}
+        </ul>
+        <p class="h4 mb-4">  {{form.ects.label }}</p>
+				<p>Range 1 to 60</p>
+				<div>{{form.ects }}</div>
+				<ul>
+						{% for error in form.ects.errors %}
+						<div class="alert alert-danger" role="alert">
+						{{ error }}
+						</div>
+						{% endfor %}
+        </ul>
+
+				{{ form.course_id(value=course_id) }}
+				<Button type="submit">Submit</Button>
+	
+		</form>
+		</div>
 </form>
 {% endblock %}

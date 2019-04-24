@@ -4,7 +4,7 @@ from wtforms import StringField, TextAreaField, BooleanField, IntegerField, vali
 class QuestionForm(FlaskForm):
     question = TextAreaField("question", [validators.required()])
     answer = TextAreaField("answer")
-    difficulty = IntegerField("difficulty")
+    difficulty = IntegerField("difficulty", [validators.NumberRange(1, 10)])
     course_id = HiddenField()
     class Meta:
         csrf = False

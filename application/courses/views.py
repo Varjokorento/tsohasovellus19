@@ -71,7 +71,6 @@ def show_my_courses(student_id):
     for row in res:
         response.append({"name":row[0]})
     return render_template("courses/mycourses.html", courses = response)
-    
 
 
 @app.route("/course/update/", methods=["POST"])

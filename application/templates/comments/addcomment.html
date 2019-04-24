@@ -1,56 +1,46 @@
 {% extends "layout.html" %}
   
 {% block body %}
-<div class="form-control">
-  <form method="POST" action="{{ url_for('new_comment') }}">
-    <table>
-        <tr>
-          <td>  
-          {{ form.text.label }}
-	</td>
-	<td>
-	  {{ form.text }}
-  </td>
-  <ul>
-	    {% for error in form.text.errors %}
-	    <li>{{ error }}</li>
-	    {% endfor %}
-	  </ul>
-</tr>
-<tr>
-  <td>
-	  {{ form.grade.label }}
-	</td>
-	<td>
-	  {{ form.grade }}
-  </td>
-  <ul>
-	    {% for error in form.grade.errors %}
-	    <li>{{ error }}</li>
-	    {% endfor %}
-	  </ul>
-</tr>
-<tr>
-  <td>
-	  {{ form.workload.label }}
-	</td>
-	<td>
-	  {{ form.workload }}
-  </td>
-  <ul>
-	    {% for error in form.workload.errors %}
-	    <li>{{ error }}</li>
-	    {% endfor %}
-	  </ul>
-</tr>
-			</tr>
-			<tr>
-					{{ form.course_id(value=course_id) }}
-			</tr>
-      <tr>
-	<td colspan="2">
-	  <input type="submit" value="Comment"/>
-	</td>
-      </tr>
-  </form>
+
+
+<div class="container">
+		<form method="POST" action="{{ url_for('new_comment') }}">
+		
+				<p class="h4 mb-4">{{form.text.label}}</p>
+				<p>The minimum length is 10 words</p>
+				<div>{{ form.text }}</div>
+				<ul>
+						{% for error in form.text.errors %}
+						<div class="alert alert-danger" role="alert">
+								{{ error }}
+						</div>
+						{% endfor %}
+				</ul>
+				<p class="h4 mb-4">{{form.grade.label}}</p>
+
+				<div>{{ form.grade }}</div>
+				<p>The grade should be between 1-5</p> 
+						{% for error in form.grade.errors %}
+						<div class="alert alert-danger" role="alert">
+								{{ error }}
+						</div>
+						{% endfor %}
+		
+				<p class="h4 mb-4">{{form.workload.label}}</p>
+				<p>Give your estimation on the workload of the course.</p>
+				<p>For example, if you feel that the courses workload was 10 ECTS, put number 10 here.</p>
+				<p>Range 1 to 60</p>
+				<div>{{ form.workload }}</div>
+				<ul>
+						{% for error in form.workload.errors %}
+						<div class="alert alert-danger" role="alert">
+						{{ error }}
+						</div>
+						{% endfor %}
+				</ul>
+				{{ form.course_id(value=course_id) }}
+				<Button type="submit">Submit</Button>
+		
+		</form>
+		</div>
 {% endblock %}
