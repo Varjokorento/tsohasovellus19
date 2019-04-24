@@ -1,8 +1,6 @@
 ## Tietokantataulut
 
-# Course-taulu
-
-Course:
+## Course-taulu
     id Integer PRIMARY KEY
     name VARCHAR
     description VARCHAR 
@@ -14,8 +12,6 @@ Course:
 
 
 ## Comment -taulu
-
-Comment:
     id Integer PRIMARY KEY
     course_id Integer FOREIGN KEY REFERENCES(Course)
     comment_text VARCHAR
@@ -30,8 +26,6 @@ Comment:
     difficulty Integer
     
 ## Course_Students -liitostaulu
-
-Course_students:
     id Integer PRIMARY KEY
     Student_id Integer FOREIGN KEY REFERENCES(Student)
     Course_id Integer FOREIGN KEY REFERENCES(Course)
