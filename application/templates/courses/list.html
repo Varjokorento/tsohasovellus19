@@ -41,12 +41,14 @@
         <input class="btn btn-secondary btn-sm" type="submit" value="Additional Information"/>
     </form>
     </td>
+    {% if current_user.is_authenticated %}
     {% if current_user.roles() == "A" %}
     <td>
         <form method="POST" action="{{ url_for('course_delete', course_id=course.id) }}">
             <input class="btn btn-danger btn-sm" type="submit" value="Delete"/>
         </form>
     </td>
+    {% endif %}
     {% endif %}
     </tr>
     {% endfor %}
