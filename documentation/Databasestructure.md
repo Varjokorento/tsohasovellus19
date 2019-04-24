@@ -40,6 +40,10 @@
     role = VARCHAR
         
 # Tietokantakaavio
+<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/dbstructure.png" width="700">
+
+
+
 
 
 Course
