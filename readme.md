@@ -13,8 +13,12 @@ Kirjautuneet käyttäjät voivat kommentoida kursseja sekä antaa arvosanoja. Ki
 [Heroku-linkki](https://matalaita.herokuapp.com/)
 
 ### Käyttäjätunnukset Herokussa:
-username: Admin
-password: root
+Ylläpitäjä:
+username: SuperUser
+password: sudo
+Tavallinen kayttaja:
+username: Testi
+password: Testi
 
 ## Käyttötapaukset
 
