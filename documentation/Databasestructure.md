@@ -38,3 +38,48 @@
     username VARCHAR
     password VARCHAR
     role = VARCHAR
+        
+# Tietokantakaavio
+
+
+Course
+-
+id PK int
+name VARCHAR
+description VARCHAR
+Core boolean
+likes int
+dislikes int
+ects int
+
+Comment
+-
+id PK int
+course_id int FK >- Course.id
+comment_text VARCHAR
+comment_grade int
+comment_workload int
+
+Question
+-
+id PK int
+course_id int FK >- Course.id
+question VARCHAR
+answer VARCHAR
+difficulty int
+
+Course_Students
+-
+id PK int
+Student_id Integer FK >- User.id
+Course_id Integer FK >- Course.id
+
+User
+-
+id PK int
+date_created DateTime
+date_modified DateTime 
+name VARCHAR
+username VARCHAR
+password VARCHAR
+role = VARCHAR
