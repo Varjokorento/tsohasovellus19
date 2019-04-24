@@ -15,9 +15,13 @@ Kirjautuneet käyttäjät voivat kommentoida kursseja sekä antaa arvosanoja. Ki
 ### Käyttäjätunnukset Herokussa:
 Ylläpitäjä:
 username: SuperUser
+
 password: sudo
+
 Tavallinen kayttaja:
+
 username: Testi
+
 password: Testi
 
 ## Käyttötapaukset
