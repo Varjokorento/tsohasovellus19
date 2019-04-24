@@ -37,13 +37,14 @@ def login_required(role="STD"):
                 return login_manager.unauthorized()
             
             unauthorized = False
-
-            if role != "STD":
+            if role == role:
                 unauthorized = True
                 
                 for user_role in current_user.roles():
-                    if user_role == role:
+                    if user_role == role or user_role == "A":
                         unauthorized = False
+                        print("Has role")
+                        print(user_role)
                         break
 
             if unauthorized:
@@ -52,6 +53,7 @@ def login_required(role="STD"):
             return fn(*args, **kwargs)
         return decorated_view
     return wrapper
+
 
 
 @login_manager.user_loader

@@ -8,19 +8,18 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 @app.route("/comment/<course_id>", methods=["POST"])
-@login_required(role="STD")
+@login_required(role="S")
 def comment_form(course_id):
     return render_template("comments/addcomment.html", form = CommentForm(), course_id = course_id)
 
 
 @app.route("/comment/new_comment", methods=["POST"])
-@login_required(role="STD")
+@login_required(role="S")
 def new_comment():
     form = CommentForm(request.form)
 
     if not form.validate():
         return render_template("comments/addcomment.html", form = form)
-  
 
     t = Comment(form.text.data, form.grade.data, form.workload.data, form.course_id.data)
     db.session().add(t)
@@ -29,7 +28,7 @@ def new_comment():
     return redirect(url_for("courses_index"))
 
 @app.route("/comment/delete/<comment_id>", methods=["POST"])
-@login_required(role="ADMIN")
+@login_required(role="A")
 def delete_comment(comment_id):
     comment = Comment.query.get(comment_id)
     db.session().delete(comment)

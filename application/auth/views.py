@@ -19,13 +19,11 @@ def create_new_user():
 
     if not form.validate():
         return render_template("/comment/new_comment", form = form)
-    role = "STD"
+    role = "A"
     t = User(form.name.data, form.username.data, form.password.data, role)
     db.session().add(t)
     db.session().commit()
-  
     return redirect(url_for("courses_index"))
-
 
 
 @app.route("/auth/login", methods = ["GET", "POST"])
@@ -35,11 +33,9 @@ def auth_login():
 
     form = LoginForm(request.form)
     user = User.query.filter_by(username=form.username.data, password=form.password.data).first()
-    print(user.role);
     if not user:
         return render_template("auth/loginform.html", form = form,
                                error = "No such username or password")
-
 
     login_user(user)
     return redirect(url_for("index"))   

@@ -1,7 +1,11 @@
 {% extends "layout.html" %}
 
 {% block body %}
-{{ error }}
+      {% if error is defined %}
+      <div class="alert alert-danger" role="alert">
+            <strong>  {{error}} </strong> 
+          </div>
+          {% endif %}
 <center>
 
             <form method="POST" action="{{ url_for('auth_login') }}">

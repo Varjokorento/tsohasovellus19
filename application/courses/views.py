@@ -75,7 +75,7 @@ def show_my_courses(student_id):
 
 
 @app.route("/course/update/", methods=["POST"])
-@login_required(role="STD")
+@login_required(role="S")
 def course_update():
     form = CourseForm(request.form)
     course = Course.query.get(form.course_id.data)
@@ -89,7 +89,7 @@ def course_update():
     return redirect(url_for("courses_index"))
 
 @app.route("/course/delete/<course_id>/", methods=["POST"])
-@login_required(role="ADMIN")
+@login_required(role="A")
 def course_delete(course_id):
     course = Course.query.get(course_id)
     stmt = text("DELETE FROM Comment WHERE Comment.course_id = :course_id").params(course_id=course_id)

@@ -1,16 +1,15 @@
-from application import app, db
+from application import app, db, login_required
 from flask import render_template, request, redirect, url_for
-from flask_login import login_required
 from application.questions.QuestionForm import QuestionForm
 from application.models.models import Question
 
 @app.route("/question/<course_id>", methods=["POST"])
-@login_required
+@login_required("S")
 def question_form(course_id):
     return render_template("questions/addquestion.html", form = QuestionForm(), course_id = course_id)
 
 @app.route("/question/new_question", methods=["POST"])
-@login_required
+@login_required("S")
 def new_question():
     form = QuestionForm(request.form)
 
