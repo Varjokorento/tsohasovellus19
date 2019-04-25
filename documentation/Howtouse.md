@@ -7,8 +7,9 @@
 
 Huom: Sovellus käyttää python3-versiota. 
 
-Ylläpitäjäkäyttäjä luodaan luomalla normaalikäyttäjä ja antamalla hänelle kannassa rooli "A". 
+Ylläpitäjäkäyttäjä luodaan luomalla normaalikäyttäjä ja antamalla hänelle kannassa rooli "A". Tämä täytyy tehdä, että voi lisätä uusia kursseja.
 
+Sovelluksen käyttö vaatii sen, että koneella on sqlite-tietokantaohjelmisto.
 
 # Käyttöohje
 
