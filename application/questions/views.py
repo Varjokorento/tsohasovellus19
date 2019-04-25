@@ -16,8 +16,6 @@ def new_question():
     if not form.validate():
         return render_template("questions/addquestion.html", form = form)
 
-    print(form.course_id.data)    
-
     t = Question(form.question.data, form.answer.data, form.difficulty.data, form.course_id.data)
     db.session().add(t)
     db.session().commit()

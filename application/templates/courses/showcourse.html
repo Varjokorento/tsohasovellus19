@@ -37,7 +37,7 @@
                     <div class="card-footer">{{comment.grade}} || {{comment.workload}}</div>
                 </div>
         </div>
-        {% if current_user.roles() == "A"%}
+        {% if current_user.roles() == "A" %}
         <form method="POST" action="{{ url_for('delete_comment', comment_id=comment.id) }}">
                 <input class="btn btn-danger" type="submit" value="Delete"/>
         </form>
