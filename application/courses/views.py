@@ -57,6 +57,9 @@ def course_add_dislike(course_id):
 
 @app.route("/course/taken<course_id><student_id>", methods=["POST"])
 def mark_course_as_taken(course_id, student_id):
+    print("TAKING COURSE")
+    print(course_id)
+    print(student_id)
     stmt = text("INSERT INTO Course_Student(course_id, student_id) VALUES(:course_id, :student_id)").params(course_id=course_id, student_id=student_id)
     db.session().execute(stmt)
     db.session().commit()
@@ -70,6 +73,10 @@ def show_my_courses(student_id):
     response = []
     for row in res:
         response.append({"name":row[0]})
+    print("DOES THIS WORK?")    
+    print(response)    
+
+    print(student_id)
     return render_template("courses/mycourses.html", courses = response)
 
 

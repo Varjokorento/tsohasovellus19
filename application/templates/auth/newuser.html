@@ -1,6 +1,13 @@
 {% extends "layout.html" %}
   
 {% block body %}
+{% if error is defined %}
+    <div class="alert alert-danger" role="alert">
+      <strong>  {{error}} </strong> 
+    </div>
+    {% endif %}
+    <img src= {{ url_for('static', filename = 'images/signup.jpg') }} alt="signupimage" width="300" height="100">
+
         <form method="POST" action="{{ url_for('create_new_user') }}">
             <div class="form-group" style="margin-top: 10px;">
                 <p>Name</p>

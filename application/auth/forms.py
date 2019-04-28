@@ -11,7 +11,7 @@ class LoginForm(FlaskForm):
 class NewUserForm(FlaskForm):
     name = TextAreaField("name", [validators.required()])
     username = TextAreaField("username", [validators.required()])
-    password = PasswordField("password", [validators.required()])
+    password = PasswordField("password", [validators.required(), validators.Length(min=6)])
 
     class Meta:
         csrf = False        

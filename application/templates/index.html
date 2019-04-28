@@ -1,4 +1,10 @@
 {% extends "layout.html" %}
-{% block body %}
+{% block body %}¨
+<div class="text-center">
+    <img src= {{ url_for('static', filename = 'images/matalaita.jpg') }} alt="logoimage" width="600" height="150">
+    <br>
+    <img src= {{ url_for('static', filename = 'images/mascot.jpg') }} alt="introimage" width="200" height="300">
+    <p>Welcome to Matalaita! This website is a tool for University of Helsinki computer science students to help them find the best courses for their degree!</p>
+</div>
 {% endblock %}
     

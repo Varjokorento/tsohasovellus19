@@ -1,5 +1,8 @@
 from flask import Flask
+from flask_bcrypt import Bcrypt
+
 app = Flask(__name__)
+bcrypt = Bcrypt(app)
 
 from flask_sqlalchemy import SQLAlchemy
 
@@ -75,6 +78,8 @@ from application.auth import views
 from application.models.models import User
 from os import urandom
 app.config["SECRET_KEY"] = urandom(32)
+
+db.drop_all()
 
 try: 
     db.create_all()

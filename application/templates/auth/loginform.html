@@ -7,6 +7,7 @@
           </div>
           {% endif %}
 <center>
+      <img src= {{ url_for('static', filename = 'images/login.jpg') }} alt="loginimage" width="300" height="100">
 
             <form method="POST" action="{{ url_for('auth_login') }}">
                   <div class="form-group" style="margin-top: 10px;">

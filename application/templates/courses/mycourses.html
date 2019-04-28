@@ -3,7 +3,7 @@
 {% block body %}
 {% if courses is defined %}
 <center>
-    <h2>My Courses</h2>
+    <img src= {{ url_for('static', filename = 'images/mycourses.jpg') }} alt="mycourses" width="300" height="100">
 <ul class="list-group">
 {% for course in courses %} 
     <li class="list-group-item">{{course.name}}</li>

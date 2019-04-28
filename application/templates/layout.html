@@ -21,10 +21,6 @@
                 <button class="btn btn-link btn-sm"><a class="navbar-brand" href="{{  url_for('show_my_courses', student_id=current_user.get_id())}}">My Courses</a>
               {% endif %}
             </nav>
-        <h1 class="text-center">Matalaita</h1>
-        <div class="text-center">
-            <img src= {{ url_for('static', filename = 'images/intro.jpg') }} alt="introimage" width="400" height="350">
-        </div>
         <div class="text-center">
             <body>
             {% block body%}

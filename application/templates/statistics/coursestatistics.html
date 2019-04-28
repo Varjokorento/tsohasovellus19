@@ -3,9 +3,10 @@
 {% block body %}
 {{ error }}
 <center>
-
-
-                  {% if courses_by_grade is defined %}
+      <img src= {{ url_for('static', filename = 'images/statistics.jpg') }} alt="statimage" width="300" height="100">
+                   {% if courses_by_grade is defined %}
+            
+      
             <table class="table">
                   <thead>
                         <tr>
@@ -41,6 +42,7 @@
                   </tbody>
           </table>
             {% endif %}        
+            <h3>Easy credits index</h2>
             {% if courses_by_ects is defined %}
             <table class="table">
                   <thead>
@@ -58,6 +60,8 @@
                         {% endfor %}
                   </tbody>
           </table>
+          <img src= {{ url_for('static', filename = 'images/ecindx.jpg') }} alt="ecidnx" width="300" height="150">
+     
                   {% endif %} 
 </center>
 {% endblock %}
