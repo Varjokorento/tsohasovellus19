@@ -1,3 +1,16 @@
+# Asennusohje
+
+1. Kloonaa repo (git clone)
+2. Mene kansioon ja aja pip3 install -r requirements.txt
+3. Aja python3 run.py komento juuressa
+4. Nyt sovelluksen pitäisi toimia localhost:5000
+
+Huom: Sovellus käyttää python3-versiota. 
+
+Ylläpitäjäkäyttäjä luodaan luomalla normaalikäyttäjä ja antamalla hänelle kannassa rooli "A". Tämä täytyy tehdä, että voi lisätä uusia kursseja.
+
+Sovelluksen käyttö vaatii sen, että koneella on sqlite-tietokantaohjelmisto.
+
 # Käyttöohje
 
 ## Rekisteröityminen

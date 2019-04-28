@@ -32,4 +32,4 @@ password: Testi
 
 [Tietokantakuvaus](https://github.com/Varjokorento/tsohasovellus19/blob/master/documentation/Databasestructure.md)
 
-[Käyttöohje](https://github.com/Varjokorento/tsohasovellus19/blob/master/documentation/Howtouse.md)
+[Asennus- ja Käyttöohje](https://github.com/Varjokorento/tsohasovellus19/blob/master/documentation/Howtouse.md)
