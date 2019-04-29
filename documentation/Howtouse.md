@@ -1,9 +1,25 @@
 # Asennusohje
 
+### HUOM: Tutoriaali olettaa, että sinulla on toimiva heroku-tili ja sinulla on asennettuna python3, pip, ja heroku cli. Lisäksi sinun täytyy asettaa heroku cli -työkalulle oikeat tunnukset ja salasanat.
+
+## Lokaali
 1. Kloonaa repo (git clone)
+3. asenna virtuaaliympäristö virtualenv venv 
+4. Aktivoi virtuaaliympäristö source venv/bin/activate
 2. Mene kansioon ja aja pip3 install -r requirements.txt
-3. Aja python3 run.py komento juuressa
+3. Aja python3 run.py komento juuressa 
 4. Nyt sovelluksen pitäisi toimia localhost:5000
+
+## Heroku 
+Tee ensin lokaali asennus.
+1. git init
+2. git add .
+3. git commit -m <commit viesti>
+4. heroku create <sovelluksennimi>
+5. git remote add <herokun git url>
+6. git push heroku   
+  
+Nyt sovelluksen pitäisi pyöriä herokussa osoitteessa <sovelluksennimi>.herokuapp.com
 
 Huom: Sovellus käyttää python3-versiota. 
 
