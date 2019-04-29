@@ -1,6 +1,8 @@
 # Asennusohje
 
-### HUOM: Tutoriaali olettaa, että sinulla on toimiva heroku-tili ja sinulla on asennettuna python3, pip, ja heroku cli. Lisäksi sinun täytyy asettaa heroku cli -työkalulle oikeat tunnukset ja salasanat.
+Asennusohje on testattu yliopiston koneella, jossa pyörii Ubuntu. 
+
+#### HUOM: Ohje olettaa, että sinulla on toimiva heroku-tili ja sinulla on asennettuna python3, pip, ja heroku cli. Lisäksi sinun täytyy asettaa heroku cli -työkalulle oikeat tunnukset ja salasanat.
 
 ## Lokaali
 1. Kloonaa repo (git clone)
@@ -21,7 +23,6 @@ Tee ensin lokaali asennus.
   
 Nyt sovelluksen pitäisi pyöriä herokussa osoitteessa <sovelluksennimi>.herokuapp.com
 
-Huom: Sovellus käyttää python3-versiota. 
 
 Ylläpitäjäkäyttäjä luodaan luomalla normaalikäyttäjä ja antamalla hänelle kannassa rooli "A". Tämä täytyy tehdä, että voi lisätä uusia kursseja.
 
