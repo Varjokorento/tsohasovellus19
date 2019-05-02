@@ -6,7 +6,6 @@
       <img src= {{ url_for('static', filename = 'images/statistics.jpg') }} alt="statimage" width="300" height="100">
                    {% if courses_by_grade is defined %}
             
-      
             <table class="table">
                   <thead>
                         <tr>
@@ -23,8 +22,8 @@
                         {% endfor %}
                   </tbody>
           </table>
-                  {% endif %}             
-                  {% if courses_by_workload is defined %}
+            {% endif %}             
+            {% if courses_by_workload is defined %}
             <table class="table">
                   <thead>
                         <tr>

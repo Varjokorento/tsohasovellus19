@@ -16,7 +16,6 @@ def new_user_form():
 @app.route("/auth/new_user", methods=["POST"]) 
 def create_new_user():
     form = NewUserForm(request.form)
-
     possibleUser = User.query.filter_by(username=form.username.data).first()
     if possibleUser:
         return render_template("auth/newuser.html", form = form, error = "Username already taken")

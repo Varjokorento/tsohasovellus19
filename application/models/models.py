@@ -20,28 +20,12 @@ class Course(db.Model):
         self.dislikes =0
 
     @staticmethod
-    def find_comments(course_id):
-        stmt = text("SELECT Comment.id, Comment.text, Comment.grade, Comment.workload FROM Comment"
-                    " WHERE (Comment.course_id = :course_id)").params(course_id = course_id)
-        res = db.engine.execute(stmt)
-        return res
-
-    @staticmethod 
-    def find_questions(course_id):
-        stmt = text("SELECT Question.id, Question.question, Question.answer, Question.difficulty FROM Question"
-                    " WHERE (Question.course_id = :course_id)").params(course_id = course_id)
-        res = db.engine.execute(stmt)
-        print(res)
-        return res
-        
-
-    @staticmethod
     def course_by_grade():
         stmt = text("SELECT Course.name, AVG(Comment.grade) from Course JOIN Comment on course.id = Comment.course_id GROUP BY Course.name")
         res = db.engine.execute(stmt)
         response = []
         for row in res:
-            response.append({"name":row[0], "avg":row[1]})
+            response.append({"name":row[0], "avg":round(row[1],2)})
         return response
 
 
@@ -51,16 +35,16 @@ class Course(db.Model):
         res = db.engine.execute(stmt)
         response = []
         for row in res:
-            response.append({"name":row[0], "avgworkload":row[1]})
+            response.append({"name":row[0], "avgworkload":round(row[1], 2)})
         return response
 
     @staticmethod 
     def course_by_ects():
-        stmt = text("Select Course.name, (Course.ects/AVG(Comment.workload)) from Course JOIN Comment on course.id = Comment.course_id GROUP BY Course.name, Course.ects")
+        stmt = text("Select Course.name, (AVG(Comment.workload)/Course.ects) from Course JOIN Comment on course.id = Comment.course_id GROUP BY Course.name, Course.ects")
         res = db.engine.execute(stmt)
         response = []
         for row in res:
-            response.append({"name":row[0], "ects":row[1]})
+            response.append({"name":row[0], "ects":round(row[1],2)})
         return response
 
 class Comment(db.Model):

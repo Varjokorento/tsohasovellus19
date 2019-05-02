@@ -1,6 +1,6 @@
 from application import app, db, login_required
 from flask import render_template, request, redirect, url_for
-from application.models.models import Course
+from application.models.models import Course, Comment, Question
 from application.courses.CourseForm import CourseForm
 from sqlalchemy.sql import text
 
@@ -15,12 +15,32 @@ def courses_index():
 @app.route("/course/showcourse/<course_id>", methods=["POST"])
 def show_course(course_id):
     course = Course.query.get(course_id)
-    comments = Course.find_comments(course_id)
-    questions = Course.find_questions(course_id)
-    return render_template("courses/showcourse.html", course = course, comments = comments, questions = questions)    
+    return render_template("courses/showcourse.html", course = course)    
+
+@app.route("/course/showcourse/<course_id>/showcomments", methods=["POST", "GET"])
+def show_course_comments(course_id):
+    page = request.args.get('page', 1, type=int)
+    comments = Comment.query.filter_by(course_id=course_id).order_by(Comment.grade.desc()).paginate(page, 1, False)
+    next_url = url_for('show_course_comments', course_id=course_id, page=comments.next_num) \
+        if comments.has_next else None
+    prev_url = url_for('show_course_comments', course_id=course_id,  page=comments.prev_num) \
+        if comments.has_prev else None
+    return render_template("courses/coursecomments.html", course_id= course_id, comments = comments.items,
+    next_url= next_url, prev_url=prev_url)    
+
+@app.route("/courses/showcourse/<course_id>/showquestions", methods=["POST", "GET"])
+def show_course_questions(course_id):
+    page = request.args.get('page', 1, type=int)
+    questions = Question.query.filter_by(course_id=course_id).paginate(page, 1, False)
+    next_url = url_for('show_course_questions', course_id=course_id, page=questions.next_num) \
+        if questions.has_next else None
+    prev_url = url_for('show_course_questions', course_id=course_id,  page=questions.prev_num) \
+        if questions.has_prev else None
+    return render_template("courses/coursequestions.html", course_id= course_id, questions = questions.items,
+    next_url= next_url, prev_url=prev_url)    
 
 @app.route("/course/new/")
-@login_required(role="STD")
+@login_required(role="S")
 def courses_form():
     return render_template("courses/new.html", form = CourseForm())
 
@@ -35,7 +55,7 @@ def courses_create():
     return redirect(url_for("courses_index"))
 
 @app.route("/course/updateinfo/<course_id>/", methods=["POST"])
-@login_required(role="STD")
+@login_required(role="S")
 def courses_update(course_id): 
     course = Course.query.get(course_id)
     form = CourseForm(obj=course)
@@ -57,9 +77,6 @@ def course_add_dislike(course_id):
 
 @app.route("/course/taken<course_id><student_id>", methods=["POST"])
 def mark_course_as_taken(course_id, student_id):
-    print("TAKING COURSE")
-    print(course_id)
-    print(student_id)
     stmt = text("INSERT INTO Course_Student(course_id, student_id) VALUES(:course_id, :student_id)").params(course_id=course_id, student_id=student_id)
     db.session().execute(stmt)
     db.session().commit()
@@ -73,10 +90,6 @@ def show_my_courses(student_id):
     response = []
     for row in res:
         response.append({"name":row[0]})
-    print("DOES THIS WORK?")    
-    print(response)    
-
-    print(student_id)
     return render_template("courses/mycourses.html", courses = response)
 
 
