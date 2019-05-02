@@ -14,7 +14,11 @@
     {% for course in courses %}
     <tr>
       <td>{{ course.name }}</td>
-      <td>{{ course.core }}</td>
+      {% if course.core == True %} 
+      <td>Yes</td>
+      {% else %} 
+      <td>No</td>
+      {% endif %}
       <td>{{ course.likes}}</td>
       <td>{{ course.dislikes}}</td>
       <td>{{ course.ects}}</td>
