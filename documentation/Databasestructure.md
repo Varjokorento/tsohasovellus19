@@ -1,5 +1,61 @@
 ## Tietokantataulut
 
+## Create Table -lausekkeet
+
+CREATE TABLE course (
+        id INTEGER NOT NULL,
+        name VARCHAR(400) NOT NULL,
+        description VARCHAR(1000) NOT NULL,
+        core BOOLEAN NOT NULL,
+        ects INTEGER,
+        likes INTEGER,
+        dislikes INTEGER,
+        PRIMARY KEY (id),
+        CHECK (core IN (0, 1))
+)
+
+CREATE TABLE comment (
+        id INTEGER NOT NULL,
+        text VARCHAR(1000) NOT NULL,
+        grade INTEGER NOT NULL,
+        workload INTEGER NOT NULL,
+        course_id INTEGER NOT NULL,
+        PRIMARY KEY (id)
+)
+
+CREATE TABLE account (
+        id INTEGER NOT NULL,
+        date_created DATETIME,
+        date_modified DATETIME,
+        name VARCHAR(144) NOT NULL,
+        username VARCHAR(144) NOT NULL,
+        password VARCHAR(144) NOT NULL,
+        role VARCHAR(10) NOT NULL,
+        PRIMARY KEY (id)
+)
+
+CREATE TABLE question (
+        id INTEGER NOT NULL,
+        question VARCHAR(1000) NOT NULL,
+        answer VARCHAR(1000),
+        difficulty INTEGER,
+        course_id INTEGER NOT NULL,
+        PRIMARY KEY (id)
+)
+
+CREATE TABLE user_role (
+        id INTEGER NOT NULL,
+        "roleName" VARCHAR(10) NOT NULL,
+        PRIMARY KEY (id)
+)
+
+CREATE TABLE course_student (
+        id INTEGER NOT NULL,
+        course_id INTEGER NOT NULL,
+        student_id INTEGER NOT NULL,
+        PRIMARY KEY (id)
+)
+
 ## Course-taulu
     id Integer PRIMARY KEY
     name VARCHAR

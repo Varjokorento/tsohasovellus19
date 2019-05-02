@@ -79,6 +79,7 @@ from application.models.models import User
 from os import urandom
 app.config["SECRET_KEY"] = urandom(32)
 
+
 try: 
     db.create_all()
 except:

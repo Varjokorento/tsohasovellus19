@@ -5,7 +5,7 @@ from sqlalchemy.sql import text
 class Course(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(400), nullable= False)
-    description = db.Column(db.String(10000), nullable=False)
+    description = db.Column(db.String(500), nullable=False)
     core = db.Column(db.Boolean, nullable=False)
     ects = db.Column(db.Integer, nullable=True)
     likes = db.Column(db.Integer, nullable=True)
@@ -110,7 +110,7 @@ class Question(db.Model):
 
 class UserRole(db.Model):
     id=db.Column(db.Integer, primary_key=True)
-    roleName=db.Column(db.String(10), nullable=False)
+    roleName= db.Column(db.String(10), nullable=False)
 
     def __init__(self, roleName):
         self.roleName = roleName
