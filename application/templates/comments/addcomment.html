@@ -27,12 +27,22 @@
 						{% endfor %}
 		
 				<p class="h4 mb-4">{{form.workload.label}}</p>
-				<p>Give your estimation on the workload of the course.</p>
-				<p>For example, if you feel that the courses workload was 10 ECTS, put number 10 here.</p>
-				<p>Range 1 to 60</p>
+				<p>Weekly workload</p>
+				<p>Put how many hours on average you worked on the course</p>
+				<p>Range 1 to 168</p>
 				<div>{{ form.workload }}</div>
 				<ul>
 						{% for error in form.workload.errors %}
+						<div class="alert alert-danger" role="alert">
+						{{ error }}
+						</div>
+						{% endfor %}
+				</ul>
+				<p class="h4 mb-4">Length of Course</p>
+				<p>Put how many weeks the course ran for</p>
+				<div>{{form.time_in_weeks}}</div>
+				<ul>
+						{% for error in form.time_in_weeks.errors %}
 						<div class="alert alert-danger" role="alert">
 						{{ error }}
 						</div>

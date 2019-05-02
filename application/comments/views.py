@@ -20,8 +20,8 @@ def new_comment():
 
     if not form.validate():
         return render_template("comments/addcomment.html", form = form)
-
-    t = Comment(form.text.data, form.grade.data, form.workload.data, form.course_id.data)
+    workload = int(form.workload.data) * int(form.time_in_weeks.data)
+    t = Comment(form.text.data, form.grade.data, workload, form.course_id.data)
     db.session().add(t)
     db.session().commit()
   
