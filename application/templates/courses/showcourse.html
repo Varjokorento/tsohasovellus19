@@ -7,7 +7,8 @@
             <div class="card-body">
                 <h5 class="card-title">{{course.name}}</h5>
                 <p class="card-text">{{course.description}}</p>
-                <div class="card-footer">{{course.core}} || {{course.ects}}</div>
+                <div class="card-footer">
+                    {% if course.core == True %} Core {% else %} Elective {% endif %} | ECTS: {{course.ects}}</div>
             </div>
         </div>
         {% if current_user.is_authenticated %}

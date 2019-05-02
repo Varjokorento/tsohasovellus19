@@ -48,7 +48,7 @@ def courses_form():
 def courses_create():
     form = CourseForm(request.form)
     if not form.validate():
-        return render_template("/course/new.html", form = form)
+        return render_template("/courses/new.html", form = form)
     t = Course(form.name.data, form.description.data, form.core.data, form.ects.data)
     db.session().add(t)
     db.session().commit()
