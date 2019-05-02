@@ -3,7 +3,7 @@ from wtforms import StringField, TextAreaField, BooleanField, IntegerField, vali
 
 class CourseForm(FlaskForm):
     name = StringField("name", [validators.Length(min=3, max=100), validators.required()])
-    description = TextAreaField("description", [validators.Length(min=3, max=1090), validators.required()])
+    description = TextAreaField("description", [validators.Length(min=3, max=500), validators.required()])
     core = BooleanField("core")
     ects = IntegerField("ects", [validators.NumberRange(1, 60)])
     course_id = HiddenField()

@@ -47,6 +47,8 @@ class Course(db.Model):
             response.append({"name":row[0], "ects":round(row[1],2)})
         return response
 
+
+
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(1000), nullable= False)
@@ -119,6 +121,8 @@ class CourseStudent(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     course_id = db.Column(db.Integer, nullable=False)
     student_id = db.Column(db.Integer, nullable=False)
+    __table_args__ = (db.UniqueConstraint('course_id', 'student_id', name='_student_course_uc'),
+                     )
 
     def __init__(self, course_id, student_id):
         self.course_id = course_id
