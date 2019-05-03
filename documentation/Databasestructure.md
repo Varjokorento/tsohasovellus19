@@ -22,6 +22,8 @@
         PRIMARY KEY (id),
         CHECK (core IN (0, 1))
        )
+     CREATE INDEX ix_course_ects ON course(ects)
+     CREATE INDEX ix_course_id ON course (id)
     
 
 
@@ -40,6 +42,9 @@
         course_id INTEGER NOT NULL,
         PRIMARY KEY (id)
      )
+     
+     CREATE INDEX ix_comment_workload ON comment (workload)
+     CREATE INDEX ix_comment_course_id ON comment (course_id)
 
 
 ## Question -taulu
@@ -69,6 +74,7 @@
         course_id INTEGER NOT NULL,
         student_id INTEGER NOT NULL,
         PRIMARY KEY (id)
+        CONSTRAINT _student_course_uc UNIQUE (course_id, student_id)
 )
 
 ## Account-taulu
