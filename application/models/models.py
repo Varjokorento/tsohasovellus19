@@ -3,11 +3,11 @@ from sqlalchemy.sql import text
 
 
 class Course(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, index=True)
     name = db.Column(db.String(400), nullable= False)
     description = db.Column(db.String(500), nullable=False)
     core = db.Column(db.Boolean, nullable=False)
-    ects = db.Column(db.Integer, nullable=True)
+    ects = db.Column(db.Integer, nullable=True, index=True)
     likes = db.Column(db.Integer, nullable=True)
     dislikes = db.Column(db.Integer, nullable=True)
 
@@ -51,8 +51,8 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(1000), nullable= False)
     grade = db.Column(db.Integer, nullable= False)
-    workload = db.Column(db.Integer, nullable= False)
-    course_id = db.Column(db.Integer, nullable=False)
+    workload = db.Column(db.Integer, nullable= False, index=True)
+    course_id = db.Column(db.Integer, nullable=False, index=True)
     
     def __init__(self, text, grade, workload, course_id):
         self.text = text
