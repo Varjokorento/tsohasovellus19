@@ -26,7 +26,7 @@ def create_new_user():
 
     if not form.validate():
         return render_template("auth/newuser.html", form = form, error = "All fields are required. Minimum password length is 6 characters")
-    role = "A"
+    role = "S"
     pw_hash = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
     t = User(form.name.data, form.username.data, pw_hash, role)
     db.session().add(t)
