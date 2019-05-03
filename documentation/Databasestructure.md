@@ -6,7 +6,9 @@ Sovellus käyttää SQLITE-tietokannanhallintajärjestelmää paikallisesti ja P
 
 #### Normalisointi 
 
-Tietokantatauluissa ei ole paljoa toisteista tieto. Tietorakenteissa ei ole kategorioita tai vastaavia, joita olisi pitänyt normalisoida. Poikkeuksena tässä kuitenkin Account-taulun role-kenttä. Tämä toistuu käyttäjältä toiselle ja roolit olisi voinut normalisoida omaksi taulukseen. Toisaalta roolin nimi haetaan aina, kun käyttäjäkin haetaan, joten denormalisoitu muoto saattaa olla oikeutettu ratkaisu. 
+Tietokantatauluissa ei ole paljoa toisteista tieto. Tietorakenteissa ei ole kategorioita tai vastaavia, joita olisi pitänyt normalisoida. 
+
+Poikkeuksena tässä kuitenkin Account-taulun role-kenttä. Tämä toistuu käyttäjältä toiselle ja roolit olisi voinut normalisoida omaksi taulukseen. Toisaalta roolin nimi haetaan aina, kun käyttäjäkin haetaan, joten denormalisoitu muoto saattaa olla oikeutettu ratkaisu. 
 
 #### Indeksit
 
