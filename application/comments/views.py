@@ -17,9 +17,8 @@ def comment_form(course_id):
 @login_required(role="S")
 def new_comment():
     form = CommentForm(request.form)
-
     if not form.validate():
-        return render_template("comments/addcomment.html", form = form)
+        return render_template("comments/addcomment.html", form = form, course_id=form.course_id.data)
     workload = int(form.workload.data) * int(form.time_in_weeks.data)
     t = Comment(form.text.data, form.grade.data, workload, form.course_id.data)
     db.session().add(t)
