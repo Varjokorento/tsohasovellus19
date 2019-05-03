@@ -10,7 +10,7 @@ def page_not_found(e):
 
 @app.route("/course", methods=["GET"])
 def courses_index():
-    return render_template("courses/list.html", courses = Course.query.all())
+    return render_template("courses/list.html", courses = Course.query.order_by(Course.name).all())
 
 @app.route("/course/showcourse/<course_id>", methods=["POST"])
 def show_course(course_id):
