@@ -15,8 +15,8 @@ Kirjautuneet käyttäjät voivat kommentoida kursseja, muokata niiden kuvailua s
 ### Käyttäjätunnukset Herokussa:
 Ylläpitäjä:
 
-username: AdminUser
-password: adminuser
+username: SuperUser
+password: superuser
 
 Tavallinen kayttaja:
 
