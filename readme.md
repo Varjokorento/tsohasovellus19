@@ -15,15 +15,17 @@ Kirjautuneet käyttäjät voivat kommentoida kursseja, muokata niiden kuvailua s
 ### Käyttäjätunnukset Herokussa:
 Ylläpitäjä:
 
-username: AdminUser
-password: adminuser
+username: SuperUser
+
+password: superuser
 
 Tavallinen kayttaja:
 
 username: RegularUser
+
 password: regularuser
 
-## Käyttötapaukset
+## Dokumentaatio
 
 [Käyttötapaukset](https://github.com/Varjokorento/tsohasovellus19/blob/master/documentation/userstories.md)
 

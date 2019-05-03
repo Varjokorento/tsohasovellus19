@@ -71,13 +71,17 @@ Navigointi sovelluksessa tapahtuu navigointipalkin avulla. Näkymässä pääkä
 
 <img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/signup.PNG">
 
-Sovelluksen tietokohteiden muokkaaminen, lisääminen ja poistaminen vaativat rekisteröitymistä. Rekistöröityminen tapahtuu lomakkeella, johon on linkki etusivulla, jos ei ole kirjautunut.
+Sovelluksen kurssikohteiden muokkaaminen, lisääminen ja poistaminen vaativat rekisteröitymistä. Rekistöröityminen tapahtuu lomakkeella, johon on linkki etusivulla, jos ei ole kirjautunut.
+
+Salasanan Bcrypt-hajautusarvo tallennetaan kantaan.
 
 ## Kirjautuminen
 
 <img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/login.png">
 
-Kirjautumiseen tarvitsee käyttäjätilin. Käyttäjätili luodaan rekisteröitymällä. Kirjautuminen tapahtuu käyttäjätunnuksen ja salasanan laittamisella kirjautumislomakkeeseen.
+Kirjautumiseen tarvitsee käyttäjätilin. Kirjautuminen tapahtuu käyttäjätunnuksen ja salasanan laittamisella kirjautumislomakkeeseen.
+
+Adminkäyttäjä pystyy lisäämään kursseja sekä poistamaan kommentteja, kursseja ja kysymyksiä. Tavallinen käyttäjä ei voi poistaa mitään.
 
 ## Kurssien tietojen katsominen
 
