@@ -7,7 +7,11 @@ Tällä hetkellä sovelluksessa on useita rajoitteita, jotka se tarvitsisi, jos 
 ### Lähdekoodin laatu
 
 Lähdekoodi tulisi refaktoroida niin, että kaikkea toiminnallisuutta ei tehtäisi views.py -tiedostoissa. Jonkinlainen tietokantakäsittelyluokka 
-tulisi implementoida. Tässä versiossa sitä ei ole johtuen enimmäkseen python-kokemukseni vähyydestä.
+tulisi implementoida. Tässä versiossa sitä ei ole johtuen enimmäkseen Python-kokemukseni vähyydestä.
+
+### Kehitys- ja tuotantoympäristön konfliktit
+
+Tällä hetkellä sovellus kaatuu paikallisesti, jos yrittää lisätä kurssia omiin tietoihin. Tämä johtuu SQLITE ja PostGres -tietokantojen eroavaisuuksita INSERT OR IGNORE INTO -lausekkeissa. Tämän olisi voinut korjata jollain tavalla, mutta en siinä onnistunut.
 
 ### Käyttäjän kurssitietojen parempi tallentaminen 
 
