@@ -38,7 +38,7 @@ Ylläpitäjäkäyttäjä luodaan luomalla normaalikäyttäjä ja antamalla häne
 
 # Käyttöohje
 
-<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/navigation.png">
+<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/navigation.PNG">
 
 Navigointi sovelluksessa tapahtuu navigointipalkin avulla. Näkymässä pääkäyttäjän näkymä, jossa näkyy myös kurssien lisäämisosio.
 
