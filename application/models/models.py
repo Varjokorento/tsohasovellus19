@@ -40,7 +40,7 @@ class Course(db.Model):
 
     @staticmethod 
     def course_by_ects():
-        stmt = text("Select Course.name as name, (AVG(Comment.workload)/Course.ects) AS average from Course JOIN Comment on course.id = Comment.course_id GROUP BY name ORDER BY average")
+        stmt = text("Select Course.name as name, (AVG(Comment.workload)/Course.ects) AS average from Course JOIN Comment on course.id = Comment.course_id GROUP BY name, Course.ects ORDER BY average")
         res = db.engine.execute(stmt)
         response = []
         for row in res:
