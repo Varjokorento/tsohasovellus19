@@ -37,10 +37,10 @@ GROUP BY name, Course.ects ORDER BY average DESC
 
 #### Absoluuttinen työmäärä:
 ```sql
-  stmt = text("SELECT Course.name as name, AVG(Comment.workload) as average from Course 
+  SELECT Course.name as name, AVG(Comment.workload) as average from Course 
   JOIN Comment on course.id = Comment.course_id 
   GROUP BY name 
-  ORDER BY average DESC")
+  ORDER BY average DESC
 ```
 ### Opiskelijana haluan pystyä vertailemaan arvosanojani muihin
 
