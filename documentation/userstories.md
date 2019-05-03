@@ -20,7 +20,11 @@ SELECT Comment.id, Comment.text, Comment.grade, Comment.workload FROM Comment WH
 
 ### Opiskelijana haluan nähdä, mitä kursseja pidetään kaikkein työläimpänä.
 
-Select Course.name, (Course.ects/AVG(Comment.workload)) from Course JOIN Comment on course.id = Comment.course_id GROUP BY Course.name, Course.ects
+#### Työmäärä suhteutettuna opintopisteisiin: 
+
+Select Course.name, (AVG(Comment.workload)/Course.ects/) from Course JOIN Comment on course.id = Comment.course_id GROUP BY Course.name, Course.ects
+
+#### Absoluuttinen työmäärä:
 
 SELECT Course.name, AVG(Comment.workload) from Course JOIN Comment on course.id = Comment.course_id GROUP BY Course.name
 
@@ -38,7 +42,7 @@ SELECT Question.id, Question.question, Question.answer, Question.difficulty FROM
 
 ### Opiskelijana haluan pystyä näkemään käymäni kurssit
 
- SELECT DISTINCT Course.name FROM COURSE_STUDENT JOIN COURSE ON Course.id = Course_Student.course_id WHERE student_id = ?
+ SELECT Course.name FROM COURSE_STUDENT JOIN COURSE ON Course.id = Course_Student.course_id WHERE student_id = ?
 
 ### Ylläpitäjänä haluan pystyä poistamaan kommentteja
 
