@@ -4,7 +4,7 @@
 
 <div class="container">
 <form method="POST" action="{{ url_for('new_question') }}">
-		<p>The question should be a question that was asked in a course exam. Providing an answer to the question is not obligatory.</p>
+		<p>The question should be a question that was asked in a course exam. All fields are mandatory. </p>
 
     <p class="h4 mb-4">{{form.question.label}}</p>
 		<div>{{ form.question }}</div>
