@@ -43,7 +43,7 @@
     {% endif %}
     <td>    
       <form method="POST" action="{{ url_for('show_course', course_id=course.id) }}">
-        <input class="btn btn-secondary btn-sm" type="submit" value="Additional Information"/>
+        <input class="btn btn-secondary btn-sm" type="submit" value="Course Information"/>
     </form>
     </td>
     {% if current_user.is_authenticated %}

@@ -7,7 +7,7 @@
 		<form method="POST" action="{{ url_for('new_comment') }}">
 		
 				<p class="h4 mb-4">{{form.text.label}}</p>
-				<p>The minimum length is 10 words</p>
+				<p>The minimum length is 10 characters</p>
 				<div>{{ form.text }}</div>
 				<ul>
 						{% for error in form.text.errors %}
