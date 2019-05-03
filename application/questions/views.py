@@ -21,3 +21,10 @@ def new_question():
     db.session().commit()
   
     return redirect(url_for("courses_index"))
+
+@app.route("/question/delete/<question_id>", methods=["POST"])
+@login_required(role="A")
+def delete_question(question_id):
+    Question.query.filter_by(id = question_id).delete()   
+    db.session().commit()
+    return redirect(url_for("courses_index"))  

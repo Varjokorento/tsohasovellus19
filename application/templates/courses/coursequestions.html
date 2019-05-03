@@ -14,10 +14,17 @@
             <div class="card-footer">Estimated difficulty: {{question.difficulty}}</div>
         </div>
 </div>
+{% if current_user.is_authenticated %}
+{% if current_user.roles() == "A" %} 
+<form method="POST" action="{{ url_for('delete_question', question_id=question.id) }}">
+    <input class="btn btn-secondary btn-sm" type="submit" value="Delete"/>
+</form>
+{% endif %}
+{% endif %}
 {% endfor %}
 {% if  questions|length == 0 %}
 <p>No questions submitted</p>
-    {% endif %}
+{% endif %}
 {% endif %}
 
 {% if prev_url %}
@@ -30,5 +37,4 @@
                 <input class="btn btn-secondary btn-sm" type="submit" value="Back to course page"/>
 </form>
 </center>
-
 {% endblock %}

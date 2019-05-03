@@ -13,6 +13,13 @@
             <div class="card-footer">Grade received: {{comment.grade}} | Workload estimation: {{comment.workload}} hours</div>
         </div>
 </div>
+{% if current_user.is_authenticated %}
+{% if current_user.roles() == "A" %} 
+<form method="POST" action="{{ url_for('delete_comment', comment_id=comment.id) }}">
+    <input class="btn btn-secondary btn-sm" type="submit" value="Delete"/>
+</form>
+{% endif %}
+{% endif %}
 {% endfor %}
 {% if  comments|length == 0 %}
 <p>No comments submitted</p>
@@ -26,7 +33,7 @@
 <form method="POST" action="{{ url_for('show_course', course_id=course_id) }}">
                 <input class="btn btn-secondary btn-sm" type="submit" value="Back to course page"/>
 </form>
-{% endif %}
 </center>
+{% endif %}
 
 {% endblock %}
