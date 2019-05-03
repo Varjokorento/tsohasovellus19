@@ -12,7 +12,7 @@ Jokaista kurssia tulee pystyä kommentoida. Kommentissa on mukana myös kommento
 
 # Kysymystietopankki
 
-Jokaiselle kurssille voi lisätä kysymykset, joita kurssin tentissä kysytään/muuten syytä osata. Kysymyksille voidaan myös lisätä vaikeusaste. Lisäksi käyttäjä voi lisätä tiedon kysymykseen siitä, että kysyttiinkö juuri tätä kysymystä tai tämänkaltaista kysymystä tentissä. Näin kysymysten yleisyyden pystyisi katsomaan sivustolta.
+Jokaiselle kurssille voi lisätä kysymykset, joita kurssin tentissä kysytään/muuten syytä osata. Kysymyksille voidaan myös lisätä vaikeusaste. 
 
 # Kurssitilastot
 
