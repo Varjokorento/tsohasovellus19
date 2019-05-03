@@ -47,7 +47,7 @@ Vaikka sovellus täyttää omat vaatimusmäärittelyni, niin seuraavat ominaisuu
 
 Oma kokemukseni sovelluksen tekemisestä oli opettavainen. Flask ja etenkin Jinja olivat mielestäni hyvin tehokkaita ja helppokäyttöisiä
 työkaluja. Opin myös paljon python-ohjelmointikielestä, jota en ole aikaisemmin käyttänyt ainakaan näin paljoa. Kurssi opetti minulle myös
-paljon tietokantakehityksestä, etenkin aina silloin, kun tuli vastaan PostGres ja Sqlite -tietokantakielien eroja. 
+paljon tietokantakehityksestä, etenkin aina silloin, kun tuli vastaan PostGres ja Sqlite -tietokannanhallintajärjestelmien eroja. 
 
 Voin sanoa, että olen kohtuullisen tyytyväinen lopputulokseen.
 
