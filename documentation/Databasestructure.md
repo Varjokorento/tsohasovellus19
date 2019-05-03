@@ -1,6 +1,18 @@
 ## Tietokantataulut
 
-## Create Table -lausekkeet
+#### Tietokannanhallintajärjestelmät
+
+Sovellus käyttää SQLITE-tietokannanhallintajärjestelmää paikallisesti ja PostGres-tietokannanhallintajärjestelmää Heroku-palvelussa. 
+
+#### Normalisointi 
+
+Tietokantatauluissa ei ole paljoa toisteista tieto. Tietorakenteissa ei ole kategorioita tai vastaavia, joita olisi pitänyt normalisoida. Poikkeuksena tässä kuitenkin Account-taulun role-kenttä. Tämä toistuu käyttäjältä toiselle ja roolit olisi voinut normalisoida omaksi taulukseen. Toisaalta roolin nimi haetaan aina, kun käyttäjäkin haetaan, joten denormalisoitu muoto saattaa olla oikeutettu ratkaisu. 
+
+#### Indeksit
+
+Tietokantatauluihin Course ja Comment on lisätty indeksit niihin kenttiin, joihin viitataan WHERE lauseissa ja yhteenvetokyselyissä.
+
+## Taulujen kuvaus 
 
 ## Course-taulu
     id Integer PRIMARY KEY
@@ -30,9 +42,9 @@
 ## Comment -taulu
     id Integer PRIMARY KEY
     course_id Integer FOREIGN KEY REFERENCES(Course)
-    comment_text VARCHAR
-    comment_grade Integer
-    comment_workload Integer
+    text VARCHAR
+    grade Integer
+    workload Integer
     
     CREATE TABLE comment (
         id INTEGER NOT NULL,
@@ -42,7 +54,6 @@
         course_id INTEGER NOT NULL,
         PRIMARY KEY (id)
      )
-     
      CREATE INDEX ix_comment_workload ON comment (workload)
      CREATE INDEX ix_comment_course_id ON comment (course_id)
 
@@ -61,7 +72,7 @@
         difficulty INTEGER,
         course_id INTEGER NOT NULL,
         PRIMARY KEY (id)
-)
+        )
     
    
 ## Course_Students -liitostaulu
@@ -75,7 +86,7 @@
         student_id INTEGER NOT NULL,
         PRIMARY KEY (id)
         CONSTRAINT _student_course_uc UNIQUE (course_id, student_id)
-)
+        )
 
 ## Account-taulu
     id Integer PRIMARY KEY
@@ -94,7 +105,7 @@
         password VARCHAR(144) NOT NULL,
         role VARCHAR(10) NOT NULL,
         PRIMARY KEY (id)
-)
+        )
         
 # Tietokantakaavio
 <img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/dbstructure.png" width="700">
