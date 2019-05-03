@@ -20,11 +20,11 @@ SELECT Comment.id, Comment.text, Comment.grade, Comment.workload FROM Comment WH
 
 ### Opiskelijana haluan nähdä, mitä kursseja pidetään kaikkein työläimpänä.
 
-Työmäärä suhteutettuna opintopisteisii:
+#### Työmäärä suhteutettuna opintopisteisiin: 
 
 Select Course.name, (AVG(Comment.workload)/Course.ects/) from Course JOIN Comment on course.id = Comment.course_id GROUP BY Course.name, Course.ects
 
-Absoluuttinen työmäärä:
+#### Absoluuttinen työmäärä:
 
 SELECT Course.name, AVG(Comment.workload) from Course JOIN Comment on course.id = Comment.course_id GROUP BY Course.name
 
