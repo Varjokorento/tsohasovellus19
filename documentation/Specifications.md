@@ -8,15 +8,22 @@ Sivusto koostuu kurssikuvauksista. Kursseissa on aina nimi, lyhyt esittely sekä
 
 # Kommentointi
 
-Jokaista kurssia tulee pystyä kommentoida. Kommentissa on mukana myös kommentoijan saama arvosana kurssista sekä hänen näkemyksensä kurssin työläydestä. Tämä tieto on pakollinen. 
+Jokaista kurssia tulee pystyä kommentoida. Kommentissa on mukana myös kommentoijan saama arvosana kurssista sekä hänen näkemyksensä kurssin työläydestä. Kaikki kentät ovat pakollisia. Kommentit ovat nimettömiä. 
 
 # Kysymystietopankki
 
 Jokaiselle kurssille voi lisätä kysymykset, joita kurssin tentissä kysytään/muuten syytä osata. Kysymyksille voidaan myös lisätä vaikeusaste. Lisäksi käyttäjä voi lisätä tiedon kysymykseen siitä, että kysyttiinkö juuri tätä kysymystä tai tämänkaltaista kysymystä tentissä. Näin kysymysten yleisyyden pystyisi katsomaan sivustolta.
 
+# Kurssitilastot
+
+Kursseista näkyy tiedot siitä, mikä on kurssin keskiarvoarvosana, miten monta tuntia kurssit vievät ja arviolta montako tuntia työtä vaaditaan yhtä opintopistettä varten. 
+
 ## Käytetyt teknologiat
-
+`
 Flask
-
+Jinja View Engine
+Sqlite
+PostGres
 Python3
+`
 
