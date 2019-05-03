@@ -21,7 +21,7 @@ class Course(db.Model):
 
     @staticmethod
     def course_by_grade():
-        stmt = text("SELECT Course.name as name, AVG(Comment.grade) as average from Course JOIN Comment on course.id = Comment.course_id GROUP BY Course.name ORDER BY average")
+        stmt = text("SELECT Course.name as name, AVG(Comment.grade) as average from Course JOIN Comment on course.id = Comment.course_id GROUP BY Course.name ORDER BY average DESC")
         res = db.engine.execute(stmt)
         response = []
         for row in res:
@@ -31,7 +31,7 @@ class Course(db.Model):
 
     @staticmethod
     def course_by_workload():
-        stmt = text("SELECT Course.name as name, AVG(Comment.workload) as average from Course JOIN Comment on course.id = Comment.course_id GROUP BY name ORDER BY average")
+        stmt = text("SELECT Course.name as name, AVG(Comment.workload) as average from Course JOIN Comment on course.id = Comment.course_id GROUP BY name ORDER BY average DESC")
         res = db.engine.execute(stmt)
         response = []
         for row in res:
@@ -40,7 +40,7 @@ class Course(db.Model):
 
     @staticmethod 
     def course_by_ects():
-        stmt = text("Select Course.name as name, (AVG(Comment.workload)/Course.ects) AS average from Course JOIN Comment on course.id = Comment.course_id GROUP BY name, Course.ects ORDER BY average")
+        stmt = text("Select Course.name as name, (AVG(Comment.workload)/Course.ects) AS average from Course JOIN Comment on course.id = Comment.course_id GROUP BY name, Course.ects ORDER BY average DESC")
         res = db.engine.execute(stmt)
         response = []
         for row in res:
