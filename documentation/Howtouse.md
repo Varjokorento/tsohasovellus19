@@ -38,43 +38,49 @@ Ylläpitäjäkäyttäjä luodaan luomalla normaalikäyttäjä ja antamalla häne
 
 # Käyttöohje
 
+<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/navigation.PNG">
+
+Navigointi sovelluksessa tapahtuu navigointipalkin avulla. Näkymässä pääkäyttäjän näkymä, jossa näkyy myös kurssien lisäämisosio.
+
 ## Rekisteröityminen
 
-<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/signup.PNG" height="500" width="500">
+<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/signup.PNG">
 
 Sovelluksen tietokohteiden muokkaaminen, lisääminen ja poistaminen vaativat rekisteröitymistä. Rekistöröityminen tapahtuu lomakkeella, johon on linkki etusivulla, jos ei ole kirjautunut.
 
 ## Kirjautuminen
 
-<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/login.png" height="500" width="500">
+<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/login.png">
 
 Kirjautumiseen tarvitsee käyttäjätilin. Käyttäjätili luodaan rekisteröitymällä. Kirjautuminen tapahtuu käyttäjätunnuksen ja salasanan laittamisella kirjautumislomakkeeseen.
 
 ## Kurssien tietojen katsominen
 
-<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/CourseInformation.PNG" height="500" width="500">
+<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/CourseInformation.PNG">
 
 Kursseja voi katsoa menemällä All Courses -osioon ja klikkaamalla Course Information nappulaa.
 
-<img src="https://github.com/Varjokorento/tsohasovellus19/blob/master/documentation/showcourse.PNG" width="700">
+## Kurssitietosivu
 
+<img src="https://github.com/Varjokorento/tsohasovellus19/blob/master/documentation/showcourse.PNG">
+
+Sivun nappuloita painamalla voi katsoa kommentteja, kysymyksiä sekä kirjautuneena lisätä molempia.
 
 ## Kommentointi
 
-<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/comment.PNG" height="500" width="500">
+<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/comment.PNG">
 
 Kurssille voi lisätä kommentin menemällä kurssin Additional Information osioon ja siellä klikkaamalla comment osiota. Kommentin teksti on pakollinen ja täytyy olla yli 10 merkkiä. Jokainen osio lomakkeessa on myös pakollinen.
 
 ## Kysymysten lisääminen
 
-
-<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/comment.PNG" height="500" width="500">
+<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/question.png">
 
 Kurssille voi lisätä kysymyksiä menemällä kurssin Course information osioon ja siellä klikkaamalla add a question osiota. Kaikki kentät ovat pakollisia.
 
 ## Omien kurssien näkeminen
 
-<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/ihavetaken.PNG" height="500" width="500">
+<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/ihavetaken.PNG">
 
 Kurssisivulta voi klikata "I have taken this course", jolloin käyttäjä voi tallentaa kurssin itselleen. Tehtyjä kursseja voi katsoa
 klikkaamalla "My courses" -linkkiä.
