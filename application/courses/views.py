@@ -77,7 +77,11 @@ def course_add_dislike(course_id):
 
 @app.route("/course/taken<course_id><student_id>", methods=["POST"])
 def mark_course_as_taken(course_id, student_id):
+    ## heroku:
     stmt = text("INSERT INTO Course_Student(course_id, student_id) VALUES(:course_id, :student_id) ON CONFLICT DO NOTHING").params(course_id=course_id, student_id=student_id)
+    ## devmode: 
+    ## stmt = text("INSERT OR IGNORE INTO Course_Student(course_id, student_id) VALUES(:course_id, :student_id)").params(course_id=course_id, student_id=student_id)
+    
     db.session().execute(stmt)
     db.session().commit()
 
