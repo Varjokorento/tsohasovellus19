@@ -25,7 +25,6 @@ login_manager.init_app(app)
 login_manager.login_view = "auth_login"
 login_manager.login_message = "Please login to use this functionality."
 
-# roles in login_required
 from functools import wraps
 
 def login_required(role="STD"):
@@ -46,8 +45,6 @@ def login_required(role="STD"):
                 for user_role in current_user.roles():
                     if user_role == role or user_role == "A":
                         unauthorized = False
-                        print("Has role")
-                        print(user_role)
                         break
 
             if unauthorized:
@@ -74,7 +71,6 @@ from application.statistics import views
 
 from application.auth import views
 
-# kirjautuminen
 from application.models.models import User
 from os import urandom
 app.config["SECRET_KEY"] = urandom(32)

@@ -108,12 +108,6 @@ class Question(db.Model):
         self.difficulty = difficulty
         self.course_id = course_id
 
-class UserRole(db.Model):
-    id=db.Column(db.Integer, primary_key=True)
-    roleName= db.Column(db.String(10), nullable=False)
-
-    def __init__(self, roleName):
-        self.roleName = roleName
 
 class CourseStudent(db.Model):
     id = db.Column(db.Integer, primary_key=True)
