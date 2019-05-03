@@ -46,7 +46,7 @@ Sovelluksen tietokohteiden muokkaaminen, lisääminen ja poistaminen vaativat re
 
 Kirjautumiseen tarvitsee käyttäjätilin. Käyttäjätili luodaan rekisteröitymällä. Kirjautuminen tapahtuu käyttäjätunnuksen ja salasanan laittamisella kirjautumislomakkeeseen.
 
-Tällä hetkellä kaikilla käyttäjillä on rooli STD. (Eli Standard). Tulevaisuudessa Admin roolit ja Standard-roolit ovat erikseen. 
+Tällä hetkellä kaikilla käyttäjillä on rooli "S". (Eli Standard). Tulevaisuudessa Admin roolit ja Standard-roolit ovat erikseen. 
 
 ## Kommentointi
 
