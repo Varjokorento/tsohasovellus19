@@ -119,8 +119,7 @@ class CourseStudent(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     course_id = db.Column(db.Integer, nullable=False)
     student_id = db.Column(db.Integer, nullable=False)
-     __table_args__ = (db.UniqueConstraint('course_id', 'student_id', name='_student_course_uc'),
-                     )
+    __table_args__ = db.UniqueConstraint('course_id', 'student_id', name='_student_course_uc')
     def __init__(self, course_id, student_id):
         self.course_id = course_id
         self.student_id = student_id
