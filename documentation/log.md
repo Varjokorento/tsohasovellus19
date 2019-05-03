@@ -6,7 +6,7 @@ Tällä hetkellä sovelluksessa on useita rajoitteita, jotka se tarvitsisi, jos 
 
 ### Lähdekoodin laatu
 
-Lähde koodi tulisi refaktoroida niin, että kaikkea toiminnallisuutta ei tehtäisi views.py -tiedostoissa. Jonkinlainen tietokantakäsittelyluokka 
+Lähdekoodi tulisi refaktoroida niin, että kaikkea toiminnallisuutta ei tehtäisi views.py -tiedostoissa. Jonkinlainen tietokantakäsittelyluokka 
 tulisi implementoida. Tässä versiossa sitä ei ole johtuen enimmäkseen python-kokemukseni vähyydestä.
 
 ### Käyttäjän kurssitietojen parempi tallentaminen 
