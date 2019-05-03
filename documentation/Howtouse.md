@@ -6,14 +6,39 @@ Asennusohje on testattu yliopiston koneella, jossa pyörii Ubuntu.
 
 ## Lokaali
 1. Kloonaa repo (git clone)
-3. asenna virtuaaliympäristö virtualenv venv 
-4. Aktivoi virtuaaliympäristö source venv/bin/activate
-2. Mene kansioon ja aja pip3 install -r requirements.txt
-3. Aja python3 run.py komento juuressa 
-4. Nyt sovelluksen pitäisi toimia localhost:5000
+2. asenna virtuaaliympäristö virtualenv venv 
+3. Aktivoi virtuaaliympäristö source venv/bin/activate
+4. Mene kansioon ja aja pip3 install -r requirements.txt
+5. Aja python3 run.py komento juuressa 
+6. Nyt sovelluksen pitäisi toimia localhost:5000
 
 Sovelluksen käyttö lokaalisti vaatii sen, että koneella on sqlite-tietokantaohjelmisto.
 
+
+### Eroavaisuukset kehitys- ja tuotantoympäristöjen välillä
+
+#### Huom: Kun haluaa kehittää herokuun sovellusta, tulee courses/views.py rivit 80-84 näyttää seuraavilta:
+
+```python 
+@app.route("/course/taken<course_id><student_id>", methods=["POST"])
+def mark_course_as_taken(course_id, student_id):
+    ## heroku:
+    stmt = text("INSERT INTO Course_Student(course_id, student_id) VALUES(:course_id, :student_id) ON CONFLICT DO NOTHING").params(course_id=course_id, student_id=student_id)
+    ## devmode: 
+    ## stmt = text("INSERT OR IGNORE INTO Course_Student(course_id, student_id) VALUES(:course_id, :student_id)").params(course_id=course_id, student_id=student_id)
+```
+
+#### Huom: Kun haluaa kehittää paikallisesti sovellusta, tulee courses/views.py rivit 80-84 näyttää seuraavilta:
+
+```python     
+@app.route("/course/taken<course_id><student_id>", methods=["POST"])
+def mark_course_as_taken(course_id, student_id):
+    ## heroku:
+    ## stmt = text("INSERT INTO Course_Student(course_id, student_id) VALUES(:course_id, :student_id) ON CONFLICT DO NOTHING").params(course_id=course_id, student_id=student_id)
+    ## devmode: 
+    stmt = text("INSERT OR IGNORE INTO Course_Student(course_id, student_id) VALUES(:course_id, :student_id)").params(course_id=course_id, student_id=student_id)
+```
+    
 ## Heroku 
 Tee ensin lokaali asennus.
 1. git init
