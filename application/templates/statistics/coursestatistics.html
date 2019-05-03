@@ -47,14 +47,14 @@
                   <thead>
                         <tr>
                               <th scope="col">Course Name</th>
-                              <th scope="col">Course ECTS</th>
+                              <th scope="col">Average Hours per ECTS</th>
                         </tr>
                   </thead>
                   <tbody>
                         {% for course in courses_by_ects %}    
                         <tr>
                               <td>{{course.name}}</td>             
-                              <td>Hours per ECTS</td> 
+                              <td>{{course.ects}}</td> 
                         </tr>
                         {% endfor %}
                   </tbody>
