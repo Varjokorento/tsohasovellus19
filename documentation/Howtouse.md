@@ -38,7 +38,7 @@ Ylläpitäjäkäyttäjä luodaan luomalla normaalikäyttäjä ja antamalla häne
 
 # Käyttöohje
 
-<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/navigation.PNG">
+<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/navigation.png">
 
 Navigointi sovelluksessa tapahtuu navigointipalkin avulla. Näkymässä pääkäyttäjän näkymä, jossa näkyy myös kurssien lisäämisosio.
 
@@ -74,7 +74,7 @@ Kurssille voi lisätä kommentin menemällä kurssin Additional Information osio
 
 ## Kysymysten lisääminen
 
-<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/question.PNG">
+<img src="https://raw.githubusercontent.com/Varjokorento/tsohasovellus19/master/documentation/question.png">
 
 Kurssille voi lisätä kysymyksiä menemällä kurssin Course information osioon ja siellä klikkaamalla add a question osiota. Kaikki kentät ovat pakollisia.
 
